@@ -1,10 +1,10 @@
 <?php
 
-$host 	  = '';
-$database = '';
-$user     = '';
-$password = '';
-$charset  = 'utf8mb4';
+$host       = 'localhost';
+$database   = 'myecom';
+$user       = 'root';
+$password   = 'mysql';
+$charset    = 'utf8mb4';
 
 $dns 	  = "mysql:host={$host};dbname={$database};charset={$charset}";
 
