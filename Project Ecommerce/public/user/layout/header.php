@@ -1,3 +1,11 @@
+<?php
+    if(!isset($_SESSION['first_name'])){
+        header('Location: login.php?mustLogin');
+        exit;
+    }
+    $first_name = $_SESSION['first_name'];
+?>
+                
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +16,20 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
+    <!-- Css Styles
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css"> -->
 
     <!-- Bootstrap  CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
  
     <!-- custom  CSS -->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="./../css/style.css" type="text/css">
   
     <title>Green-Basket.online</title>
 </head>
@@ -35,7 +43,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="#"><img src="../../img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -46,7 +54,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
+                <img src="../../img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
@@ -55,8 +63,8 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
-                <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
+
+            <span>Hi <?=$first_name?></span>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -112,7 +120,7 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
+                                <img src="./../img/language.png" alt="">
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
@@ -121,8 +129,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                            <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
-                            <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
+                            <span>Hi <?=$first_name?></span>
                              </div>
                         </div>
                     </div>
@@ -133,7 +140,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.php"><img src="img/logo.png" alt=""></a>
+                        <a href="../../index.php"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
