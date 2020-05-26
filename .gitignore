@@ -1,0 +1,5 @@
+# Ignore Mac system files
+.DS_store
+
+# Ignore Oans dbconnect files
+./Project Ecommerce/SRC/dbconnect.php
