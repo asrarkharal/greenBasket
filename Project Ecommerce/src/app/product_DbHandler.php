@@ -1,7 +1,4 @@
 <?php
-include('../../src/dbconnect.php');
-?>
-<?php
 class productDbHandlerClass
 {
     public function getAllProducts()
@@ -19,8 +16,24 @@ class productDbHandlerClass
         }
         return $productsListArray;
     }
+
+    // GET One Product
     public function getOneProduct($id)
     {
+        global $dbconnect;
+        try {
+            $query = "
+        SELECT * FROM products
+        WHERE id = :id;
+        
+    ";
+            $onepost = $dbconnect->prepare($query);
+            $onepost->bindValue(':id', $id);
+            $res = $onepost->execute();
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int) $e->getCode());
+        }
+        return $onepost;
     }
 
 
@@ -73,6 +86,11 @@ class productDbHandlerClass
         if (empty($productPrice)) {
             $errorMessage .= '<li> Product Price Field Can not be Empty.</li>';
         }
+
+        if (!filter_var($productPrice, FILTER_VALIDATE_INT)) {
+            $errorMessage .= '<li> Enter Price in Numbers.</li>';
+        }
+
         if (empty($productImgUrl)) {
             $errorMessage .= '<li> Img url Field Can not be Empty.</li>';
         }
@@ -105,6 +123,77 @@ class productDbHandlerClass
             }
         } else {
             return $errorUl;
+        }
+    }
+    //--------------update function
+    public function updateProduct($productPOST)
+    {
+        $_POST = $productPOST;
+
+        global $dbconnect;
+
+        $productId = "";
+        $productTitle   = '';
+        $productDescription = '';
+        $productPrice  = '';
+        $productImgUrl = "";
+
+        $errorMessage = '';
+        $errorUl = '';
+
+        $productId = $_POST['productId'];
+        $productTitle   = $_POST['productTitle'];
+        $productDescription = $_POST['productDescription'];
+        $productPrice  = $_POST['productPrice'];
+        $productImgUrl = $_POST['imgUrl'];
+
+
+        if (empty($productTitle)) {
+            $errorMessage .= '<li> Title Can not be Empty.</li>';
+        }
+
+        if (empty($productDescription)) {
+            $errorMessage .= '<li> Add Some Description.</li>';
+        }
+        if (empty($productPrice)) {
+            $errorMessage .= '<li> Price Field Can not be Empty.</li>';
+        }
+
+        if (!filter_var($productPrice, FILTER_VALIDATE_INT)) {
+            $errorMessage .= '<li> Enter Price in Numbers.</li>';
+        }
+
+        if (empty($productImgUrl)) {
+            $errorMessage .= '<li> Image Field Can not be Empty.</li>';
+        }
+
+        if (!empty($errorMessage)) {
+            $errorUl = "<ul id ='listOfErrors' >{$errorMessage}</ul>";
+        }
+
+        if (empty($errorUl)) {
+            try {
+                $query = "UPDATE products SET title = :etitle, description = :edesc, price = :eprice, img_url = :eimgurl
+        WHERE id = :eid;
+           ";
+                $st = $dbconnect->prepare($query);
+                $st->bindValue(':etitle', $productTitle);
+                $st->bindValue(':edesc', $productDescription);
+                $st->bindValue(':eprice', $productPrice);
+                $st->bindValue('eimgurl', $productImgUrl);
+                $st->bindValue(':eid', $productId);
+                $result = $st->execute();
+            } catch (\PDOException $e) {
+                throw new \PDOException($e->getMessage(), (int) $e->getCode());
+            }
+            header("location: index.php");
+        } else {
+            return array(
+                "myul" => $errorUl, "pTitle" => $productTitle,
+                "pDescription" => $productDescription,
+                "pPrice" => $productPrice, "pId" => $productId, "pImg" => $productImgUrl
+            );
+            //return $errorUl . $title . $content . $author;
         }
     }
 }
