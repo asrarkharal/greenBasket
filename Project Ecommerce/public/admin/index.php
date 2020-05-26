@@ -71,7 +71,7 @@ if (isset($_POST['createProductBtn'])) {
     <?php } ?>
 
     <hr>
-    <!--  -->
+    <!--USERS SECTION  -->
 
 
     <h3>Users</h3>
