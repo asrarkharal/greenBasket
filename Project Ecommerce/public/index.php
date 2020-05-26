@@ -1,7 +1,7 @@
 <?php
     require('../src/config.php');
-    if(!isset($_SESSION['email'])){
-        header('Location: login.php?mustLogin');
+    if(!isset($_SESSION['first_name'])){
+        header('Location: login_user.php?mustLogin');
         exit;
     }
     require(SRC_PATH . 'dbconnect.php');

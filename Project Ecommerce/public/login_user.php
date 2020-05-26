@@ -1,7 +1,6 @@
 <?php
     require('../src/config.php');
     require(SRC_PATH . 'dbconnect.php');
-    include('layout/header.php');
 ?>
 <?php
  
@@ -37,27 +36,32 @@
      catch(\PDOException $e){
          throw new \PDOException($e->getMessage(), (int) $e->getCode());
      }
-     echo "<pre>";
-     print_r($_POST);
-     echo "</pre>";
+    //  echo "<pre>";
+    //  print_r($_POST);
+    //  echo "</pre>";
       
+    // echo "<pre>";
+    // print_r($user['id']);
+    // echo "</pre>";
+    
+    // echo "<pre>";
+    // print_r($_SESSION);
+    // echo "</pre>";
+    // die; 
+    //$hashPassword= $user['password']  ;
+    if ($user && password_verify($password,$user['password'])){
+        $_SESSION['first_name'] = $user['first_name'];
+       //  header("Location: index.php");
 
-    echo "<pre>";
-    print_r($user);
-    echo "</pre>";
-    //die; 
- 
-     if ($user && password_verify($password, $user['password'])) {
-          $_SESSION['first_name'] = $user['first_name'];
-          header('Location: user/my_profile.php?id=$user['id']');
-         exit;
-     } else {
+     header("Location: user/my_profile.php?id={$user['id']}");
+   //   header('Location: user/my_profile.php?id=$user['id']');
+        exit; 
+    }   
+      else {
          $msg = '<div class="alert alert-warning">Wrong username or password. Please try again.</div>';
      }
-
- 
- }            
-      
+ }  
+ include('layout/header.php');             
 ?>
 
     <!-- Hero Section Begin -->
@@ -138,7 +142,7 @@
   <div class="auth-box ">
  	<div class="content">
       <form method="POST" action="#">
-         <fieldset>
+        
              <legend>Log in</legend>                    
              <?=$msg?> 
              
@@ -153,7 +157,7 @@
              <p>
                  <input type="submit" name="doLogin" value="Login">
              </p>
-                    <div class="form-group clearfix">
+                    <!-- <div class="form-group clearfix">
 						<label class="fancy-checkbox element-left">
 							<input type="checkbox">
 							<span>Remember me</span>
@@ -161,9 +165,9 @@
                     </div>
  					<div class="bottom">
 						<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
-					</div>
+					</div> -->
 
-         </fieldset>
+          
      </form>     
      </div>   
    
