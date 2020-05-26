@@ -70,7 +70,7 @@
                         <li><a href="checkout.php">Check Out</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./blog.php">Blog</a></li>
                 <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
@@ -149,7 +149,7 @@
                                     <li><a href="checkout.php">Check Out</a></li>
                                  </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./blog.php">Blog</a></li>
                             <li><a href="./contact.php">Contact</a></li>
                         </ul>
                     </nav>
