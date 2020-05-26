@@ -34,24 +34,24 @@ if (isset($_POST['createProductBtn'])) {
 <?php
 $prods = $productDbHandler->getAllProducts();
 foreach ($prods as $val) { ?>
-<div class="one-product" style="background-color : #F4FEFE; border-top : dotted">
-    <p><b>ID</b> : <?= $val['id'] ?></p>
-    <p><b>Title</b>:<?= $val['title'] ?></p>
-    <p><b>Description</b> : <?= $val['description'] ?></p>
-    <p><b>Price</b> : <?= $val['price'] ?></p>
-    <p><b>Img URL</b> : <?= $val['img_url'] ?></p>
+    <div class="one-product" style="background-color : #F4FEFE; border-top : dotted">
+        <p><b>ID</b> : <?= $val['id'] ?></p>
+        <p><b>Title</b>:<?= $val['title'] ?></p>
+        <p><b>Description</b> : <?= $val['description'] ?></p>
+        <p><b>Price</b> : <?= $val['price'] ?></p>
+        <p><b>Img URL</b> : <?= $val['img_url'] ?></p>
 
-    <form action="" method="POST">
-        <input type="hidden" name="productHiddenID" value="<?= $val['id'] ?>">
-        <input type="submit" name="deleteProductBtn" value="Delete This Product">
-    </form>
+        <form action="" method="POST">
+            <input type="hidden" name="productHiddenID" value="<?= $val['id'] ?>">
+            <input type="submit" name="deleteProductBtn" value="Delete This Product">
+        </form>
 
-    <form action="edit_product_page.php" method="POST">
-        <input type="hidden" name="editProductHiddenID" value="<?= $val['id'] ?>">
-        <input type="submit" name="editProductBtn" value="Edit">
-    </form>
+        <form action="edit_product_page.php" method="POST">
+            <input type="hidden" name="editProductHiddenID" value="<?= $val['id'] ?>">
+            <input type="submit" name="editProductBtn" value="Edit">
+        </form>
 
-</div>
+    </div>
 
 <?php } ?>
 
