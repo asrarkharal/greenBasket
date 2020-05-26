@@ -163,7 +163,7 @@ require ('../../src/dbconnect.php');
 
                     <p>
                         <input type="submit" name="submit" value="Create"> | 
-                        <a href="index.php">Go back</a>
+                        <a href="../index.php">Go back</a>
                     </p>
                   
                 </fieldset>
