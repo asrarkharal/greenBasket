@@ -3,6 +3,9 @@
 require ('../../src/dbconnect.php');
 
 ?>
+
+
+<!---INSERT USERS---->
 <?php
  //echo "<pre>";
  //print_r($_POST);
@@ -109,8 +112,8 @@ require ('../../src/dbconnect.php');
 
 <form method="POST" action="#">
                 <fieldset>
-                    <legend>Create new User</legend>
-                
+                    <legend><h1>Create new User</h1></legend>
+                   
                    
                     
                     <p>
@@ -162,8 +165,17 @@ require ('../../src/dbconnect.php');
                         <input type="submit" name="submit" value="Create"> | 
                         <a href="index.php">Go back</a>
                     </p>
+                  
                 </fieldset>
             </form>
+            <hr>
+
+
+
+
+
+
+<!---DISPLAY USERS---->
             <?php
 
             try {
@@ -181,10 +193,7 @@ require ('../../src/dbconnect.php');
             <div id="content">
         <article class="border">
             <h1>Users</h1>
-           
-
-            <br>
-            
+             
             <table id="users-tbl">
             	<thead>
 	            	<tr>
@@ -200,7 +209,9 @@ require ('../../src/dbconnect.php');
                         <th>Country</th>
 	            		
 	            	</tr>
+                  
             	</thead>
+               
             	<tbody>
                 <?php foreach ($users as $key => $user) { ?>
             	
@@ -216,13 +227,8 @@ require ('../../src/dbconnect.php');
                         <th><?=htmlentities($user['city'])?></th>
                         <th><?=htmlentities($user['country'])?></th>
 	            		<th>
-	            			<form action="" method="GET" style="float:left;">
-	            				<input type="hidden" name="id" value="<?=$user['id']?>">
-				            	<input type="submit" value="Update">
-				            </form>
-	            			<form action="" method="POST" style="float:left;">
-	            				<input type="hidden" name="id" value="<?=$user['id']?>">
-	            				<input type="submit" name="deleteUserBtn" value="Delete">
+                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button class="submit">Update</button></a>
+                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button class="submit">Delete</button></a>
 	            			</form>
 	            		</th>
 	            	</tr>
