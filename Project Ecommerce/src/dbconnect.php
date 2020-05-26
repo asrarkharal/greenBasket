@@ -1,23 +1,15 @@
 <?php
+ 
 
-$host       = 'localhost';
-$database   = 'myecom';
-$user       = 'root';
-$password   = 'mysql';
-$charset    = 'utf8mb4';
+$host 	  = 'localhost';
+$database = 'e_commerce';
+$user     = 'root';
+$password = '';
+$charset  = 'utf8mb4';
 
 $dns 	  = "mysql:host={$host};dbname={$database};charset={$charset}";
 
-// För MAMP, så kan dns se lite olika ut
-//$dns 	  = "mysql:unix_socket=/Application/MAMP/tmp/mysql/mysql.sock;dbname={$database}";
-
-/**
- * Read about setting error mode:
- * https://www.php.net/manual/en/pdo.setattribute.php
- *
- * Read about different fetching styles:
- * https://www.php.net/manual/en/pdostatement.fetch.php
- */
+ 
 $options = [
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Error mode
 	PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Fetch style, fetching associative array
