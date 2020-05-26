@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- 
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -19,12 +20,13 @@
 
     <!-- Bootstrap  CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
- 
+
     <!-- custom  CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
-  
+
     <title>Green-Basket.online</title>
 </head>
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -57,6 +59,7 @@
             <div class="header__top__right__auth">
                 <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
                 <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
+                <a href="admin/index.php"><i class="fa fa-user"></i> Admin</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -65,7 +68,7 @@
                 <li><a href="promotion.php">Promotion</a></li>
                 <li><a href="#">Products</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="ProudctAll.php">All products</a></li>
+                        <li><a href="../product_list_page.php">All product</a></li>
                         <li><a href="shoping-cart.php">Shoping Cart</a></li>
                         <li><a href="checkout.php">Check Out</a></li>
                     </ul>
@@ -121,9 +124,10 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                            <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
-                            <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
-                             </div>
+                                <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
+                                <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
+                                <a href="admin/index.php"><i class="fa fa-user"></i> Admin</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,10 +148,10 @@
                             <li><a href="#">Products</a>
 
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="ProudctAll.php">All products</a></li>
+                                    <li><a href="product_list_page.php">All products</a></li>
                                     <li><a href="shoping-cart.php">Shoping Cart</a></li>
                                     <li><a href="checkout.php">Check Out</a></li>
-                                 </ul>
+                                </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
                             <li><a href="./contact.php">Contact</a></li>
