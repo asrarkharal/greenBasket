@@ -1,0 +1,25 @@
+<?php
+// Turn on/off error reporting
+error_reporting(-1);
+
+// Start session
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+//define('ROOT_PATH', '..' . __DIR__ . '/'); // path to 'my-page-3/'
+define('SRC_PATH',  __DIR__ . '/'); // path to 'my-page-3/src/'
+
+
+
+require('dbconnect.php');
+
+
+// Include functions and classes
+require('app/common_functions.php');
+
+//require('app/user_DbHandler.php');
+//$userDbHandler = new userDbHandlerClass();
+
+require('app/product_DbHandler.php');
+$productDbHandler = new productDbHandlerClass();
