@@ -15,6 +15,7 @@ if (isset($_POST['createProductBtn'])) {
 ?>
 
 <a href="../../public/index.php">Home</a>
+<a href="create_user.php">Users</a>
 
 
 <div class="container">
@@ -93,6 +94,14 @@ $prods = $productDbHandler->getAllProducts();
 
                 </form>
 
+<<<<<<< HEAD
+<hr>
+
+
+
+<!-- Footer -->
+
+=======
                 <form action="edit_product_page.php" method="POST">
                     <input type="hidden" name="editProductHiddenID" value="<?= $val['id'] ?>">
                     <input type="submit" name="editProductBtn" value="Edit">
@@ -108,3 +117,4 @@ $prods = $productDbHandler->getAllProducts();
 <?php
 include('layout/footer.php')
 ?>
+>>>>>>> 3790280c87cbe98d945dc9e49f666fc898b04a2b

@@ -718,7 +718,11 @@ ol {
 }
 
 .hero__text p {
+<<<<<<< HEAD
+     margin-top :250px!important;
+=======
 	margin-bottom: 35px;
+>>>>>>> 3790280c87cbe98d945dc9e49f666fc898b04a2b
 }
 
 /*---------------------
