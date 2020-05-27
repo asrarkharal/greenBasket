@@ -1,11 +1,13 @@
 <?php
-    if(!isset($_SESSION['first_name'])){
-        header('Location: login.php?mustLogin');
-        exit;
-    }
-    $first_name = $_SESSION['first_name'];
+    // require('../../src/config.php');
+    checkLogginSessionForUserProfile();
+    // if(!isset($_SESSION['first_name'])){
+    //     redirect('../login_user.php?mustLogin');
+    //     exit;
+    // }
+    // require(SRC_PATH . 'dbconnect.php');
+      $first_name = $_SESSION['first_name'];
 ?>
-                
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,22 +17,23 @@
  
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
-    <!-- Css Styles
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- Css Styles-->
+    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/vendor/linearicons/style.css">
+    
+    <link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">  
 
     <!-- Bootstrap  CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
- 
+     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
     <!-- custom  CSS -->
-    <link rel="stylesheet" href="./../css/style.css" type="text/css">
-  
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+ 
     <title>Green-Basket.online</title>
 </head>
 <body>
@@ -43,7 +46,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="../../img/logo.png" alt=""></a>
+            <a href="#"><img src="../img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -54,7 +57,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="../../img/language.png" alt="">
+                <img src="../img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
@@ -63,23 +66,23 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
+            <span>Hi <?=$first_name?></span><a href="../logout.php"><span>Log out</span></a>
 
-            <span>Hi <?=$first_name?></span>
-            </div>
+             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.php">Home</a></li>
-                <li><a href="promotion.php">Promotion</a></li>
+                <li class="active"><a href="../index.php">Home</a></li>
+                <li><a href="../promotion.php">Promotion</a></li>
                 <li><a href="#">Products</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="ProudctAll.php">All products</a></li>
-                        <li><a href="shoping-cart.php">Shoping Cart</a></li>
-                        <li><a href="checkout.php">Check Out</a></li>
+                        <li><a href="../ProudctAll.php">All products</a></li>
+                        <li><a href="../shoping-cart.php">Shoping Cart</a></li>
+                        <li><a href="../checkout.php">Check Out</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.php">Contact</a></li>
+                <li><a href="../blog.php">Blog</a></li>
+                <li><a href="../contact.php">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -120,7 +123,7 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <img src="./../img/language.png" alt="">
+                                <img src="../img/language.png" alt="">
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
@@ -129,7 +132,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                            <span>Hi <?=$first_name?></span>
+                            <span>Hi <?=$first_name?></span><a href="../logout.php"><span>Log out</span></a>
                              </div>
                         </div>
                     </div>
@@ -140,24 +143,24 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="../../index.php"><img src="img/logo.png" alt=""></a>
+                        <a href="../index.php"><img src="../img/logo-footer.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="promotion.php">Promotion</a></li>
+                            <li class="active"><a href="../index.php">Home</a></li>
+                            <li><a href="../promotion.php">Promotion</a></li>
                             <li><a href="#">Products</a>
 
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="ProudctAll.php">All products</a></li>
-                                    <li><a href="shoping-cart.php">Shoping Cart</a></li>
-                                    <li><a href="checkout.php">Check Out</a></li>
+                                    <li><a href="../ProudctAll.php">All products</a></li>
+                                    <li><a href="../shoping-cart.php">Shoping Cart</a></li>
+                                    <li><a href="../checkout.php">Check Out</a></li>
                                  </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.php">Contact</a></li>
+                            <li><a href="../blog.php">Blog</a></li>
+                            <li><a href="../contact.php">Contact</a></li>
                         </ul>
                     </nav>
                 </div>

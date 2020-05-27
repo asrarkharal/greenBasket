@@ -4,7 +4,7 @@
     //     header('Location: login.php?mustLogin');
     //     exit;
     // }
-    require(SRC_PATH . 'dbconnect.php');
+     require(SRC_PATH . 'dbconnect.php');
     include('layout/header.php');
 ?>
 <?php
@@ -189,8 +189,8 @@ if(isset($_POST['register'])){
  
                     <div class="col-lg-8">
                         <div class="contact__form__title">
-                            <h2>Register</h2>
-                            <h4>Please Register to be our customer </h4>
+                            <!-- <h2>Register</h2> 
+                            <h4>Please Register to be our customer </h4>-->
 
                         </div>
                     </div>
