@@ -22,7 +22,7 @@
                             <li><a href="#">About Our Shop</a></li>
                             <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="../public/admin/index.php">Privacy Policy Admin</a></li>
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
                         <ul>
@@ -55,10 +55,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p> 
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <a href="http://green-basket.online" target="_blank">Green-basket.online</a>
-  </p></div>
-                        
+                        <div class="footer__copyright__text">
+                            <p>
+                                Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                                </script> All rights reserved | <a href="http://green-basket.online"
+                                    target="_blank">Green-basket.online</a>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -78,6 +83,6 @@
 
 
 
-</body>
+    </body>
 
-</html>
+    </html>
