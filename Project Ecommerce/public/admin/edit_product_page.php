@@ -1,4 +1,5 @@
 <?php include('../../src/config.php');
+include('layout/header.php');
 $id = "";
 $title = "";
 $description = "";
@@ -28,7 +29,6 @@ if (isset($_POST['editProductBtn'])) {
 if (isset($_POST['updateProductBtn'])) {
 
     $result = $productDbHandler->updateProduct($_POST);
-
     $errorUl = $result['myul'];
     $id = $result['pId'];
     $title = $result['pTitle'];
@@ -38,16 +38,49 @@ if (isset($_POST['updateProductBtn'])) {
 }
 ?>
 
-<?= $errorUl ?>
+<div class="container">
+    <div class="contact-form spad">
+        <div class="col-lg-9">
+            <div class="contact__form__title">
+                <h2>Edit Product Page</h2>
+            </div>
+        </div>
 
-<form action="" method="POST">
-    <fieldset>
-        Title : <input type="text" name="productTitle" value="<?= $title ?>">
-        Description : <input type="text" name="productDescription" value="<?= $description ?>">
-        Price : <input type="text" name="productPrice" value="<?= $price ?>">
-        Img URL : <input type="text" name="imgUrl" value="<?= $imgurl ?>">
-        Id : <input type="text" name="productId" value="<?= $id ?>">
-        <input type="submit" name="updateProductBtn" value="Update Product">
-    </fieldset>
-</form>
+
+        <h5><?= $errorUl ?></h5>
+
+        <div class="col-sm-12 col-md-12 col-lg-9">
+            <form method="POST" action="#">
+                <fieldset>
+                    <legend>Create Product</legend>
+
+                    <p>
+                        <label for="input1">Title:</label> <br>
+                        <input type="text" class="text" name="productTitle" value="<?= $title ?>">
+
+                        <label for="input1">Description:</label> <br>
+                        <input type="text" class="text" name="productDescription" value="<?= $description ?>">
+
+                        <label for="input1">Price:</label> <br>
+                        <input type="text" class="text" name="productPrice" value="<?= $price ?>">
+
+                        <label for="input1">Img Url:</label> <br>
+                        <input type="text" class="text" name="imgUrl" value="<?= $imgurl ?>">
+                        <input type="hidden" class="text" name="productId" value="<?= $id ?>">
+                    </p>
+                    <p>
+                        <input type="submit" name="updateProductBtn" value="Update Product">
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
 <a href="index.php">Go back</a>
+
+<?php
+include('layout/footer.php')
+?>
