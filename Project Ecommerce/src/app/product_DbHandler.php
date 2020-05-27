@@ -186,7 +186,6 @@ class productDbHandlerClass
             } catch (\PDOException $e) {
                 throw new \PDOException($e->getMessage(), (int) $e->getCode());
             }
-            header("location: index.php");
         } else {
             return array(
                 "myul" => $errorUl, "pTitle" => $productTitle,

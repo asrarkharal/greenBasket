@@ -1,3 +1,14 @@
+<?php
+//require('../src/config.php');
+if (isset($_SESSION['first_name'])) {
+    $first_name = $_SESSION['first_name'];
+    $userId =  $_SESSION['id'];
+    // exit;
+}
+//require(SRC_PATH . 'dbconnect.php');    
+//debug($userId);
+//die;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,8 +39,11 @@
 </head>
 
 <body>
-   
-
+    <!-- Page Preloder 
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    -->
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
@@ -54,9 +68,26 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
+                <!-- <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
                 <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
-                <a href="index.php"><i class="fa fa-user"></i> Admin</a>
+                <span>Hi <?= $first_name ?></span><a href="logout.php"><span>Log out</span></a> -->
+
+
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <?php
+                        if (isset($first_name)) {
+                            $aboveNav = "<a class='nav-link' href='user/my_profile.php?id=$userId'>My profile</a><a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name";
+                        } else {
+                            $aboveNav = "<a class='nav-link' href='register_user.php'>Register</a><a class='nav-link' href='login_user.php'>Log in</a>";
+                        }
+                        echo $aboveNav;
+                        ?>
+                    </li>
+                </ul>
+
+
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -65,7 +96,7 @@
                 <li><a href="promotion.php">Promotion</a></li>
                 <li><a href="#">Products</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="../product_list_page.php">All product</a></li>
+                        <li><a href="ProudctAll.php">All products</a></li>
                         <li><a href="shoping-cart.php">Shoping Cart</a></li>
                         <li><a href="checkout.php">Check Out</a></li>
                     </ul>
@@ -121,9 +152,22 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
-                                <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
-                                <a href="admin/index.php"><i class="fa fa-user"></i> Admin</a>
+                                <?php
+                                if (isset($first_name)) {
+                                    $aboveNav = "<a class='nav-link' href='user/my_profile.php?id=$userId'>My profile</a>
+                                <a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name     
+                             ";
+                                } else {
+                                    $aboveNav = "<ul><li> <a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a></li>
+                                </ul>";
+                                }
+                                echo $aboveNav;
+                                ?>
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -145,7 +189,7 @@
                             <li><a href="#">Products</a>
 
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="product_list_page.php">All products</a></li>
+                                    <li><a href="ProudctAll.php">All products</a></li>
                                     <li><a href="shoping-cart.php">Shoping Cart</a></li>
                                     <li><a href="checkout.php">Check Out</a></li>
                                 </ul>
