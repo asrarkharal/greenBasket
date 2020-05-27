@@ -1,43 +1,4 @@
 <?php
-<<<<<<< HEAD
-include('../src/config.php');
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Shop</title>
-</head>
-
-<body>
-    <header>
-        <nav>
-            <a href="">User Login</a> <span> | </span> <a href="">Register</a>
-
-        </nav>
-
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="user/index.php">User Index</a></li>
-                <li><a href="admin/index.php">admin Index</a></li>
-
-            </ul>
-
-        </nav>
-    </header>
-    <h1>Shop page</h1>
-
-    <?php
-    $userDbHandler->getAllUsers();
-    ?>
-
-
-</body>
-
-</html>
-=======
 require('../src/config.php');
 if (!isset($_SESSION['first_name'])) {
     header('Location: login_user.php?mustLogin');
@@ -574,4 +535,3 @@ include('layout/header.php');
 
 <!-- Footer -->
 <?php include('layout/footer.php'); ?>
->>>>>>> 3d6b3320f8f5d6bcbc4d490d1372f4559dfad1ec

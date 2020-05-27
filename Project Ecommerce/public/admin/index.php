@@ -1,4 +1,6 @@
-<?php include('../../src/config.php'); ?>
+<?php include('../../src/config.php');
+      
+ ?>
 
 <?php
 $feedback = "";
@@ -15,6 +17,7 @@ if (isset($_POST['createProductBtn'])) {
 <h1>Admin page</h1>
 <h3>Products</h3>
 <a href="../../public/index.php">Home</a>
+<a href="create_user.php">Users</a>
 
 <h3 style="color : pink">Create Product</h3>
 <h5>FEED BACK: <?= $feedback ?></h5>
@@ -57,5 +60,7 @@ foreach ($prods as $val) { ?>
 
 <hr>
 
-<h2>USERS</h2>
-<?php include ('create_user.php.')?>
+
+
+<!-- Footer -->
+

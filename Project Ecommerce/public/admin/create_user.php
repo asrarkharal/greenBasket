@@ -1,8 +1,61 @@
 <?php
 
 require ('../../src/dbconnect.php');
-
+include ('layout/header.php');
 ?>
+
+<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>All departments</span>
+                    </div>
+                    <ul>
+                        <li><a href="#">Fresh Meat</a></li>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Fruit & Nut Gifts</a></li>
+                        <li><a href="#">Fresh Berries</a></li>
+                        <li><a href="#">Ocean Foods</a></li>
+                        <li><a href="#">Butter & Eggs</a></li>
+                        <li><a href="#">Fastfood</a></li>
+                        <li><a href="#">Fresh Onion</a></li>
+                        <li><a href="#">Papayaya & Crisps</a></li>
+                        <li><a href="#">Oatmeal</a></li>
+                        <li><a href="#">Fresh Bananas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                All Categories
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="What do yo u need?">
+                            <button type="submit" class="site-btn">SEARCH</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+46 11.222.3333</h5>
+                            <span>support 24/7 </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    
+                           
+
+
 
 
 <!---INSERT USERS---->
@@ -36,39 +89,39 @@ require ('../../src/dbconnect.php');
     $country      = trim($_POST['country']);
 
     if (empty($first_name)) {
-        $error .= '<li">Name is required</div>';
+        $error .= '<div class="alert alert-danger">Name is required</div>';
         
     }
     if (empty($last_name)) {
-        $error .= '<li">Last Name is required</li>';
+        $error .= '<div class="alert alert-danger">Last Name is required</div>';
         
     }
     if (empty($email)) {
-        $error .= '<li">Email is required</li>';
+        $error .= '<div class="alert alert-danger">Email is required</div>';
         
     }
     if (empty($password)) {
-        $error .= '<li">Password is required</li>';
+        $error .= '<div class="alert alert-danger">Password is required</div>';
         
     }
     if (empty($phone)) {
-        $error .= '<li">Phone number is required</li>';
+        $error .= '<div class="alert alert-danger">Phone number is required</div>';
         
     }
     if (empty($street)) {
-        $error .= '<li">Street is required</li>';
+        $error .= '<div class="alert alert-danger">Street is required</div>';
         
     }
     if (empty($postal_code)) {
-        $error .= '<li">Postal Code is required</li>';
+        $error .= '<div class="alert alert-danger">Postal Code is required</div>';
         
     }
     if (empty($city)) {
-        $error .= '<li">City is required</li>';
+        $error .= '<div class="alert alert-danger">City is required</div>';
         
     }
     if (empty($country)) {
-        $error .= '<li">Country is required</li>';
+        $error .= '<div class="alert alert-danger">Country is required</div>';
         
     }
     if ($error) {
@@ -77,8 +130,7 @@ require ('../../src/dbconnect.php');
     
     if (empty($error)) {
         try{
-            $query = " 
-            INSERT INTO users (first_name,last_name,email,password,phone,street,postal_code,city,country)
+            $query = " INSERT INTO users (first_name,last_name,email,password,phone,street,postal_code,city,country)
             VALUES (:first_name ,:last_name,:email, :password, :phone , :street ,:postal_code, :city, :country);
             ";
     
@@ -100,6 +152,16 @@ require ('../../src/dbconnect.php');
 
 
     if ($result){
+        $first_name='';
+        $last_name='';
+        $email= '';
+        $password ='';
+        $phone ='';
+        $street ='';
+        $postal_code ='';
+        $city ='';
+        $country ='';
+
      
     $msg = '<div class="alert alert-success">Your user is created</div>';
     } else {
@@ -110,68 +172,68 @@ require ('../../src/dbconnect.php');
     }
 ?>
 
+<!--  FORM USER INSERT---->
+<section>
 <form method="POST" action="#">
-                <fieldset>
-                    <legend><h1>Create new User</h1></legend>
-                   
-                   
+<?=$msg?>          
+                    <h4>Create new User</h4>
                     
-                    <p>
+                    <form>
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
                         <label for="input1">Name:</label> <br>
                         <input type="text" class="text" name="first_name" value="<?=$first_name?>">
-                    </p>
-                    
-                    <p>
+                    </div>
+                        <div class="form-group col-md-6">
                         <label for="input1">Surname:</label> <br>
                         <input type="text" class="text" name="last_name" value="<?=$last_name?>">
-                    </p>
-
-                    <p>
+                    </div>
+                    </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
                         <label for="input1">E-mail:</label> <br>
                         <input type="text" class="text" name="email" value="<?=$email?>">
-                    </p>
-
-                    <p>
+                    </div>
+                    <div class="form-group col-md-6">
                         <label for="input2">Password:</label> <br>
                         <input type="text" class="text" name="password" value ="<?=$password?>">
-                    </p>
-
-                    <p>
+                    </div>
+                    </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-6"> 
                         <label for="input2">Phone:</label> <br>
                         <input type="text" class="text" name="phone" value ="<?=$phone?>">
-                    </p>
-
-                    <p>
+                    </div>
+                    <div class="form-group col-md-6"> 
                         <label for="input1">Street:</label> <br>
                         <input type="text" class="text" name="street" value="<?=$street?>">
-                    </p>
-
-                    <p>
+                    </div>
+                    </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-6"> 
                         <label for="input1">Postal Code:</label> <br>
                         <input type="text" class="text" name="postal_code" value ="<?=$street?>">
-                    </p>
-
-                    <p>
+                    </div>
+                    <div class="form-group col-md-6"> 
                         <label for="input1">City:</label> <br>
                         <input type="text" class="text" name="city" value="<?=$city?>">
-                    </p>
-
-                    <p>
+                    </div>
+                    <div class="form-group col-md-6"> 
                         <label for="input1">Country:</label> <br>
                         <input type="text" class="text" name="country" value="<?=$country?>">
-                    </p>
-
+                    </div>
+                    </div>
                     <p>
-                        <input type="submit" name="submit" value="Create"> | 
+                    <input class="btn btn-success" type="submit"  name="submit" value="Create">| 
                         <a href="../index.php">Go back</a>
                     </p>
                   
-                </fieldset>
+              
             </form>
             <hr>
 
-
-
+</section>
+<!----END FORM--->
 
 
 
@@ -190,57 +252,71 @@ require ('../../src/dbconnect.php');
 
 ?>
             <br>
-            <div id="content">
-        <article class="border">
-            <h1>Users</h1>
+            
+             <section>
+            <h3>Users</h3>
              
-            <table id="users-tbl">
+            <table  class="table table-hover">
             	<thead>
-	            	<tr>
-	            		<th>id</th>
-	            		<th>Name</th>
-                        <th>Surname</th>
-	            		<th>E-mail</th>
-	            		<th>Password</th>
-                        <th>Phone</th>
-                        <th>Street</th>
-                        <th>Postal code</th>
-                        <th>City</th>
-                        <th>Country</th>
+	            	<tr class= "table-success">
+                       
+	            		<th scope="column">ID</th>
+	            		<th scope="column">Name</th>
+                        <th scope="column">Surname</th>
+	            		<th scope="column">E-mail</th>
+	            		<th scope="column">Password</th>
+                        <th scope="column">Phone</th>
+                        <th scope="column">Street</th>
+                        <th scope="column">Postal code</th>
+                        <th scope="column">City</th>
+                        <th scope="column">Country</th>
 	            		
 	            	</tr>
                   
             	</thead>
+                </table>
                
             	<tbody>
                 <?php foreach ($users as $key => $user) { ?>
-            	
+            	    
+                    <table  class="table table-hover">
+            	    <thead>
             		<tr>
-                        <th><?=$user['id']?></th>
-	            		<th><?=htmlentities($user['first_name'])?></th>
-	            		<th><?=htmlentities($user['last_name'])?></th>
-	            		<th><?=htmlentities($user['email'])?></th>
-                        <th><?=htmlentities($user['password'])?></th>
-                        <th><?=htmlentities($user['phone'])?></th>
-                        <th><?=htmlentities($user['street'])?></th>
-                        <th><?=htmlentities($user['postal_code'])?></th>
-                        <th><?=htmlentities($user['city'])?></th>
-                        <th><?=htmlentities($user['country'])?></th>
-	            		<th>
-                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button class="submit">Update</button></a>
-                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button class="submit">Delete</button></a>
-	            			</form>
+                        <th scope="column"><?=$user['id']?></th>
+	            		<th scope="column"><?=htmlentities($user['first_name'])?></th>
+	            		<th scope="column"><?=htmlentities($user['last_name'])?></th>
+	            		<th scope="column"><?=htmlentities($user['email'])?></th>
+                        <th scope="column"><?=htmlentities($user['password'])?></th>
+                        <th scope="column"><?=htmlentities($user['phone'])?></th>
+                        <th scope="column"><?=htmlentities($user['street'])?></th>
+                        <th scope="column"><?=htmlentities($user['postal_code'])?></th>
+                        <th scope="column"><?=htmlentities($user['city'])?></th>
+                        <th scope="column"><?=htmlentities($user['country'])?></th>
+	            		<th scope="column">
+                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button type="button" class="btn btn-info" >Update</button></a></th>
+                        <th scope ="column">
+                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button type="button" class="btn btn-danger">Delete</button></a>
 	            		</th>
 	            	</tr>
+                    </thead>
+                </table>
 
                     <?php } ?>
             	</tbody>
             </table>
 
-            <hr>
-        </article>
-    </div>
+        
+            </div>
+    </section>
 
     
-   
 
+          
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Footer -->
+<?php include('layout/footer.php'); ?>
