@@ -3,7 +3,6 @@
     require(SRC_PATH . 'dbconnect.php');
 ?>
 <?php
- 
  $msg = "";
  if (isset($_GET['mustLogin'])) {
      $msg = '<div class="alert alert-danger">Obs! The page is protected. Please log in.</div>';
@@ -29,39 +28,27 @@
      // $stmt->bindValue(':password', $password );
      // $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
      $stmt->execute(); // returns true/false
-
      $user = $stmt->fetch(); // returns the user record if exists, else returns false
-
      }
      catch(\PDOException $e){
          throw new \PDOException($e->getMessage(), (int) $e->getCode());
      }
-    //  echo "<pre>";
-    //  print_r($_POST);
-    //  echo "</pre>";
-      
-    // echo "<pre>";
-    // print_r($user['id']);
-    // echo "</pre>";
-    
-    // echo "<pre>";
-    // print_r($_SESSION);
-    // echo "</pre>";
-    // die; 
-    //$hashPassword= $user['password']  ;
-    if ($user && password_verify($password,$user['password'])){
+    //  debug($_POST);  
+    //  debug($user['id']);
+    //  debug($_SESSION);
+       
+     if ($user && password_verify($password,$user['password'])){
         $_SESSION['first_name'] = $user['first_name'];
-       //  header("Location: index.php");
-
-     header("Location: user/my_profile.php?id={$user['id']}");
-   //   header('Location: user/my_profile.php?id=$user['id']');
-        exit; 
+        $_SESSION['id'] = $user['id'];
+      redirect("user/my_profile.php?id={$user['id']}");
+ 
     }   
       else {
          $msg = '<div class="alert alert-warning">Wrong username or password. Please try again.</div>';
      }
- }  
+ } 
  include('layout/header.php');             
+ 
 ?>
 
     <!-- Hero Section Begin -->
