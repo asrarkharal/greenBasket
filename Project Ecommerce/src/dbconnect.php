@@ -1,7 +1,8 @@
 <?php
 
 $host       = 'localhost';
-$database   = 'e_commerce';
+//$database   = 'e_commerce';
+$database = 'myecom';
 $user       = 'root';
 $password   = 'mysql';
 $charset    = 'utf8mb4';
