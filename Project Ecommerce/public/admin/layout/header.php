@@ -92,7 +92,7 @@ if (isset($_SESSION['first_name'])) {
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.php">Home</a></li>
+                <li class="active"><a href="../../public/index.php">Home</a></li>
                 <li><a href="promotion.php">Promotion</a></li>
                 <li><a href="#">Products</a>
                     <ul class="header__menu__dropdown">
@@ -184,9 +184,9 @@ if (isset($_SESSION['first_name'])) {
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.php">Home</a></li>
+                            <li class="active"><a href="../../public/index.php">Home</a></li>
                             <li><a href="promotion.php">Promotion</a></li>
-                            <li><a href="#">Products</a>
+                            <li><a href="../../public/product_list_page.php">Products</a>
 
                                 <ul class="header__menu__dropdown">
                                     <li><a href="ProudctAll.php">All products</a></li>
