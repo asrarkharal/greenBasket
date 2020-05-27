@@ -1,14 +1,3 @@
-<?php
-//require('../src/config.php');
-if (isset($_SESSION['first_name'])) {
-    $first_name = $_SESSION['first_name'];
-    $userId =  $_SESSION['id'];
-    // exit;
-}
-//require(SRC_PATH . 'dbconnect.php');    
-//debug($userId);
-//die;
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,35 +57,18 @@ if (isset($_SESSION['first_name'])) {
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <!-- <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
+                <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
                 <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
-                <span>Hi <?= $first_name ?></span><a href="logout.php"><span>Log out</span></a> -->
-
-
-                <ul class="navbar-nav ml-auto">
-
-                    <li class="nav-item">
-                        <?php
-                        if (isset($first_name)) {
-                            $aboveNav = "<a class='nav-link' href='user/my_profile.php?id=$userId'>My profile</a><a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name";
-                        } else {
-                            $aboveNav = "<a class='nav-link' href='register_user.php'>Register</a><a class='nav-link' href='login_user.php'>Log in</a>";
-                        }
-                        echo $aboveNav;
-                        ?>
-                    </li>
-                </ul>
-
-
+                <a href="index.php"><i class="fa fa-user"></i> Admin</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.php">Home</a></li>
+                <li class="active"><a href="../index.php">Home</a></li>
                 <li><a href="promotion.php">Promotion</a></li>
                 <li><a href="#">Products</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="ProudctAll.php">All products</a></li>
+                        <!-- <li><a href="../../product_list_page.php">All product</a></li> -->
                         <li><a href="shoping-cart.php">Shoping Cart</a></li>
                         <li><a href="checkout.php">Check Out</a></li>
                     </ul>
@@ -152,22 +124,9 @@ if (isset($_SESSION['first_name'])) {
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <?php
-                                if (isset($first_name)) {
-                                    $aboveNav = "<a class='nav-link' href='user/my_profile.php?id=$userId'>My profile</a>
-                                <a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name     
-                             ";
-                                } else {
-                                    $aboveNav = "<ul><li> <a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a></li>
-                                </ul>";
-                                }
-                                echo $aboveNav;
-                                ?>
-
-
-
-
-
+                                <a href="register_user.php"><i class="fa fa-user"></i> Register</a>
+                                <a href="login_user.php"><i class="fa fa-user"></i> Login</a>
+                                <a href="index.php"><i class="fa fa-user"></i> Admin</a>
                             </div>
                         </div>
                     </div>
@@ -184,12 +143,12 @@ if (isset($_SESSION['first_name'])) {
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.php">Home</a></li>
+                            <li class="active"><a href="../index.php">Home</a></li>
                             <li><a href="promotion.php">Promotion</a></li>
                             <li><a href="#">Products</a>
 
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="ProudctAll.php">All products</a></li>
+                                    <li><a href="product_list_page.php">All products</a></li>
                                     <li><a href="shoping-cart.php">Shoping Cart</a></li>
                                     <li><a href="checkout.php">Check Out</a></li>
                                 </ul>
