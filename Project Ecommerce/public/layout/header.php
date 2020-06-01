@@ -32,6 +32,9 @@
     <!-- custom  CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Green-Basket.online</title>
 
 </head>
