@@ -1,12 +1,6 @@
 <?php
-    // require('../../src/config.php');
     checkLogginSessionForUserProfile();
-    // if(!isset($_SESSION['first_name'])){
-    //     redirect('../login_user.php?mustLogin');
-    //     exit;
-    // }
-    // require(SRC_PATH . 'dbconnect.php');
-      $first_name = $_SESSION['first_name'];
+    $first_name = $_SESSION['first_name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

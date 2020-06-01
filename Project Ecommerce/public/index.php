@@ -1,6 +1,6 @@
 <?php
        require('../src/config.php');
-      require(SRC_PATH . 'dbconnect.php');
+//     require(SRC_PATH . 'dbconnect.php');
     include('layout/header.php');
 ?>
     <!-- Hero Section Begin -->

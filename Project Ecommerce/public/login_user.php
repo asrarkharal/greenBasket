@@ -1,42 +1,24 @@
 <?php
     require('../src/config.php');
-    require(SRC_PATH . 'dbconnect.php');
-?>
-<?php
+
  $msg = "";
  if (isset($_GET['mustLogin'])) {
      $msg = '<div class="alert alert-danger">Obs! The page is protected. Please log in.</div>';
  }
+
+if (isset($_GET['deletedAccount'])) {
+    $msg = '<div class="alert alert-warning">Your account has been deleted.</div>';
+}
  if (isset($_GET['logout'])) {
      $msg = '<div class="alert alert-warning">You have logged out.</div>';
  }
-    
 
  if (isset($_POST['doLogin'])) {
      $email           = $_POST['email'];
-     // $username = $_POST['username'];
      $password = $_POST['password'];
+    // $user = fetchUserByEmail($email);
+     $user = $userDbHandler->fetchUserByEmail($email);
 
-     try {
-         $query = "
-         SELECT * FROM users
-         WHERE email = :email;
-     ";
-
-     $stmt = $dbconnect->prepare($query);
-     $stmt->bindValue(':email', $email);
-     // $stmt->bindValue(':password', $password );
-     // $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
-     $stmt->execute(); // returns true/false
-     $user = $stmt->fetch(); // returns the user record if exists, else returns false
-     }
-     catch(\PDOException $e){
-         throw new \PDOException($e->getMessage(), (int) $e->getCode());
-     }
-    //  debug($_POST);  
-    //  debug($user['id']);
-    //  debug($_SESSION);
-       
      if ($user && password_verify($password,$user['password'])){
         $_SESSION['first_name'] = $user['first_name'];
         $_SESSION['id'] = $user['id'];
@@ -48,7 +30,6 @@
      }
  } 
  include('layout/header.php');             
- 
 ?>
 
     <!-- Hero Section Begin -->
@@ -163,9 +144,5 @@
 
 </div>
  
-
- 
-
-
 <!-- Footer -->
 <?php include('layout/footer.php');?>
