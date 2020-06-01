@@ -19,3 +19,6 @@ $userDbHandler = new userDbHandlerClass();
 
 require('app/product_DbHandler.php');
 $productDbHandler = new productDbHandlerClass();
+
+require('app/adminusers_DbHandler.php');
+$adminuserDbHandler = new adminuserDbHandlerClass();

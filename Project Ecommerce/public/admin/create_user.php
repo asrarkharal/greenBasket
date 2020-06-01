@@ -1,6 +1,7 @@
 <?php
 
 require ('../../src/dbconnect.php');
+require ('../../src/config.php');
 include ('layout/header.php');
 ?>
 
@@ -221,17 +222,8 @@ include ('layout/header.php');
 <!---DISPLAY USERS---->
             <?php
 
-            try {
-            $query = "
-            SELECT * FROM users
-            ";
-            $stmt = $dbconnect->query($query);
-           $users = $stmt->fetchAll();
-           } catch (\PDOException $e) {
-           throw new \PDOException($e->getMessage(), (int) $e->getCode());
-           }
-
-?>
+           $users =$adminuserDbHandler->getAllUsers();
+           ?>
             <br>
             
              <section>
@@ -274,9 +266,9 @@ include ('layout/header.php');
                         <th scope="column"><?=htmlentities($user['city'])?></th>
                         <th scope="column"><?=htmlentities($user['country'])?></th>
 	            		<th scope="column">
-                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button type="button" class="btn btn-info" >Update</button></a></th>
+                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button type="button" class="btn btn-info update" >Update</button></a></th>
                         <th scope ="column">
-                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button type="button" class="btn btn-danger">Delete</button></a>
+                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button type="button" class="btn btn-danger remove">Delete</button></a>
 	            		</th>
 	            	</tr>
                     </thead>
@@ -301,3 +293,53 @@ include ('layout/header.php');
 
 <!-- Footer -->
 <?php include('layout/footer.php'); ?>
+</body>
+
+<script type="text/javascript">
+    $(".remove").click(function(){
+        var id = $(this).parents("tr").attr("id");
+  
+        {
+            $.ajax({
+               url: 'delete_user.php',
+               type: 'GET',
+               data: {id: id},
+               error: function() {
+                  alert('Something is wrong');
+               }
+              
+               
+            });
+        }
+    });
+
+
+</script>
+
+<script type="text/javascript">
+    $(".update").click(function(){
+        var id = $(this).parents("tr").attr("id");
+
+
+        if(confirm('Are you sure to update this user ?'));
+        else
+         return false;
+        {
+            $.ajax({
+               url: 'update_user.php',
+               type: 'GET',
+               data: {id: id},
+               error: function() {
+                  alert('Something is wrong');
+               }
+              
+               
+            });
+        }
+    });
+
+
+</script>
+
+
+</html>
