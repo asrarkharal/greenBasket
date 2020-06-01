@@ -60,6 +60,9 @@
           var country = button.data('country') // Extract info from data-* attributes
           var phone = button.data('phone') // Extract info from data-* attributes
           var email = button.data('email') // Extract info from data-* attributes
+          var password = button.data('password') // Extract info from data-* attributes
+          var confirmPassword = button.data('confirmPassword') // Extract info from data-* attributes
+
           var id = button.data('id'); // Extract info from data-* attributes
 
           // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -73,6 +76,10 @@
           modal.find(".modal-body input[name='country']").val(country);
           modal.find(".modal-body input[name='phone']").val(phone);
           modal.find(".modal-body input[name='email']").val(email);
+          modal.find(".modal-body input[name='password']").val(password);
+          modal.find(".modal-body input[name='confirmPassword']").val(confirmPassword);
+
+
 
 
           modal.find(".modal-body input[name='id']").val(id);
@@ -81,7 +88,7 @@
     </script>
 <script>
 function myConfirm() {
-  var result = confirm("Want to delete?");
+  var result = confirm("Do you really want to delete your account?");
   if (result==true) {
    return true;
   } else {

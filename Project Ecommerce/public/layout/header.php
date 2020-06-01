@@ -1,13 +1,10 @@
 <?php
-//require('../src/config.php');
-if (isset($_SESSION['first_name'])) {
+ if (isset($_SESSION['first_name'])) {
     $first_name = $_SESSION['first_name'];
     $userId =  $_SESSION['id'];
     // exit;
 }
-//require(SRC_PATH . 'dbconnect.php');    
-//debug($userId);
-//die;
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +33,7 @@ if (isset($_SESSION['first_name'])) {
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>Green-Basket.online</title>
+
 </head>
 
 <body>

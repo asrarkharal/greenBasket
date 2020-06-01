@@ -3,5 +3,10 @@
 	session_start();
 	$_SESSION = [];
 	session_destroy();
-	redirect('login_user.php?logout');
-	exit;
+	if(isset($_GET['deletedAccount'])){
+		redirect('login_user.php?deletedAccount');
+	}else{
+			redirect('login_user.php?logout');
+
+	}
+	

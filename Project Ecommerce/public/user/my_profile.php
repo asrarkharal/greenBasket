@@ -1,13 +1,9 @@
 <?php
-   //Already in layout/header.php
+   /*this config file,settting start session, so it has to come before include layout/header.php
+   *config file also has require dbconnect.php , so no need to require dbcoonnect again here
+   */
      require('../../src/config.php');
-     require(SRC_PATH . 'dbconnect.php');
-  
-?>
- 
-<?php
- //debug($_GET);
- 
+
 // Update user
   $msg = '';
   $error  = '';
@@ -24,7 +20,10 @@
     $country                =trim($_POST['country']);
     $phone                 =trim($_POST['phone']);
     $email                 =trim($_POST['email']);
-    $userId = $_POST['id'];
+    $userId                 = $_POST['id'];
+    $password        = trim($_POST['password']);
+    $confirmPassword = trim($_POST['confirmPassword']);
+
   
         if (empty($first_name)) {
             $error .= "<li>the first name must not be empty</li>";
@@ -38,6 +37,9 @@
         if (empty($postal_code)) {
             $error .= "<li>your postal code must not be empty</li>";
         } 
+        if(!is_numeric($postal_code)){
+            $error .= "<li>The postal code is allow only number</li>";
+        }
         if (empty($city)) {
             $error .= "<li>your city address must not be empty</li>";
         }
@@ -47,6 +49,19 @@
         if (empty($phone)) {
             $error .= "<li>your phone number must not be empty</li>";
         } 
+        if(!is_numeric($phone)){
+            $error .= "<li>The phone field is allow only number</li>";
+        }
+    
+        // if(empty($password)){
+        //     $error .= "<li>Password is required</li>";
+        // }
+        if(!empty($password) && strlen($password)<6){
+            $error .= "<li>Password has to be at least 6 characters</li>";
+        }
+        if($confirmPassword !== $password) {
+            $error .= "<li>You have to confirm the same password </li>";
+        }
         if (empty($email)) {
             $error .= "<li>your e-mail must not be empty</li>";
         } 
@@ -58,79 +73,95 @@
         }  
         else {
             if(empty($error)) {
-            $msg = '<div class="alert alert-success">Your profile is updated.</div>';  
-            } 
-                try {
-                  $query = "UPDATE users SET 
-                  first_name= :first_name, 
-                  last_name=:last_name, 
-                  street=:street, 
-                  postal_code=:postal_code, 
-                  city=:city,
-                  country=:country,
-                  phone=:phone,
-                  email=:email 
-                  WHERE id = :id;
-                ";        
-                    $stmt = $dbconnect->prepare($query);
-                    $stmt->bindValue(':first_name', $first_name);
-                    $stmt->bindValue(':last_name', $last_name);
-                    $stmt->bindValue(':street', $street);
-                    $stmt->bindValue(':postal_code', $postal_code);
-                    $stmt->bindValue(':city', $city);
-                    $stmt->bindValue(':country', $country);
-                    $stmt->bindValue(':phone', $phone);
-                    $stmt->bindValue(':email', $email);
-                    $stmt->bindValue(':id', $userId);
-                    $user = $stmt->fetch();
-                    $stmt->execute();
-                    } catch (\PDOException $e) {
-                        throw new \PDOException($e->getMessage(), (int) $e->getCode());
-                    };
-            }  ;          
+                $msg = '<div class="alert alert-success">Your profile is updated.</div>';  
+            }
+                $userData = [
+                    'first_name' => $first_name,
+                    'last_name' => $last_name,
+                    'street'    => $street,
+                    'postal_code'    => $postal_code,
+                    'city'    => $city,
+                    'country'    => $country,
+                    'phone'    => $phone,
+                    'email'    => $email,
+                    'password' => $password,
+                    'id'       => $userId,
+                ];
+                //$result = updateUser($userData);
+                $result = $userDbHandler->updateUser($userData);
+                 
+                if ($result) {
+                    $msg = '<div class="alert alert-success">Your profile is updated.</div>';  
+                } else {
+                    $msg = '<div class="error_msg">Your profile is not updated.Please try again later!</div>';
+                }
+
+ 
+                // try {
+                //   $query = "
+                //   UPDATE users SET 
+                //   first_name= :first_name, 
+                //   last_name=:last_name, 
+                //   street=:street, 
+                //   postal_code=:postal_code, 
+                //   city=:city,
+                //   country=:country,
+                //   phone=:phone,
+                //   email=:email,
+                //   password=:password 
+
+                //   WHERE id = :id;
+                // ";        
+                //     $stmt = $dbconnect->prepare($query);
+                //     $stmt->bindValue(':first_name', $first_name);
+                //     $stmt->bindValue(':last_name', $last_name);
+                //     $stmt->bindValue(':street', $street);
+                //     $stmt->bindValue(':postal_code', $postal_code);
+                //     $stmt->bindValue(':city', $city);
+                //     $stmt->bindValue(':country', $country);
+                //     $stmt->bindValue(':phone', $phone);
+                //     $stmt->bindValue(':email', $email);
+                //     $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
+                //     $stmt->bindValue(':id', $userId);
+                //     $user = $stmt->fetch();
+                //     $stmt->execute();
+                //     } catch (\PDOException $e) {
+                //         throw new \PDOException($e->getMessage(), (int) $e->getCode());
+                //     };
+            }           
 };
   
 
-// Fetch user to display on page
-if (isset($_GET['id'])) { 
-    $userId= $_GET['id'];
-    
-    try {
-        $query = 
-        "SELECT * FROM users 
-       -- WHERE id = :id;
-         WHERE id = $userId
-        ";
-        $stmt = $dbconnect->query($query);
-        //  $stmt = $dbconnect->prepare($query);
-         //  $stmt->bindValue(':id', $userId );
- 
-        $user = $stmt->fetch();
-        $stmt->execute();
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int) $e->getCode());
-      }
-    }  ;
-
     // Delete user
 if (isset($_POST['deleteUserBtn'])) {
-    try {
-      $query = "
-        DELETE FROM users
-        WHERE id = :id;
-      ";
-  
-      $stmt = $dbconnect->prepare($query);
-      $stmt->bindValue(':id', $_GET['id']);
-      $stmt->execute();
-    } catch (\PDOException $e) {
-      throw new \PDOException($e->getMessage(), (int) $e->getCode());
-    } 
-    redirect('../logout.php');
-	    exit;
-   
+    //deleteUserById ($_GET['id']);
+    $userDbHandler->deleteUserById ($_GET['id']);
+    redirect('../logout.php?deletedAccount'); 
   }
-  include('layout/header.php');
+
+  // Fetch user by ID
+if (isset($_SESSION['id'])) { 
+    $userId= $_SESSION['id'];
+    // $user= fetchUserById($userId);
+    $user= $userDbHandler->fetchUserById($userId);
+
+ 
+    //     try {
+    //     $query = 
+    //         "SELECT * FROM users 
+    //           WHERE id = :id;
+    //         ";
+    //     // $stmt = $dbconnect->query($query);
+    //      $stmt = $dbconnect->prepare($query);
+    //       $stmt->bindValue(':id', $userId);
+    //       $stmt->execute();
+    //      $user = $stmt->fetch();
+    //      } catch (\PDOException $e) {
+    //         throw new \PDOException($e->getMessage(), (int) $e->getCode());
+    //   }
+    };
+   /***this include layout/header.php have to come after CRUD***/   
+include('layout/header.php');
 ?>
 
 
@@ -243,7 +274,7 @@ if (isset($_POST['deleteUserBtn'])) {
 											<li>Mobile <span><?=htmlentities($user['phone'])?></span></li>
 											<li>Email <span><?=htmlentities($user['email'])?></span></li>
 											<li>Be member since <span><?=htmlentities($user['register_date'])?></span></li>
-										</ul>
+                                        </ul>
 									</div>
 		 
 									<div class="profile-info">
@@ -425,6 +456,16 @@ if (isset($_POST['deleteUserBtn'])) {
                 <input type="text" class="form-control" name="email"   >
                 <input type="hidden" name="id">
             </div>
+            <div class="form-group">
+                <label  class="col-form-label">New password:</label>
+                <input type="password" class="form-control" name="password"   >
+                <input type="hidden" name="id">
+            </div>
+            <div class="form-group">
+                <label  class="col-form-label">Confirm new password:</label>
+                <input type="password" class="form-control" name="confirmPassword"   >
+                <input type="hidden" name="id">
+            </div>
         </div>
 
         <div class="modal-footer">
@@ -435,9 +476,5 @@ if (isset($_POST['deleteUserBtn'])) {
     </div>
   </div>
 </div>
-
-
-
-
-    <!-- Footer -->
-    <?php include('layout/footer.php');?>
+ <!-- Footer -->
+<?php include('layout/footer.php');?>

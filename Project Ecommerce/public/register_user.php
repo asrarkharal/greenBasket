@@ -1,18 +1,6 @@
 <?php
     require('../src/config.php');
-    // if(!isset($_SESSION['username'])){
-    //     header('Location: login.php?mustLogin');
-    //     exit;
-    // }
-     require(SRC_PATH . 'dbconnect.php');
-    include('layout/header.php');
-?>
-<?php
-
-//  echo "<pre>";
-//  print_r($_POST);
-// echo "</pre>";
-// die; 
+    include('layout/header.php'); 
 
 $first_name      = '';
 $last_name       = '';
@@ -24,6 +12,7 @@ $phone           = '';
 $email           = '';
 $error           = '';
 $msg             = '';
+ 
 if(isset($_POST['register'])){
     $first_name             = trim($_POST['first_name']);
     $last_name              = trim($_POST['last_name']);
@@ -54,8 +43,14 @@ if(isset($_POST['register'])){
     if(empty($postal_code)){
         $error .= "<li>Your postal code is required</li>";
     }
+    if(!is_numeric($postal_code)){
+        $error .= "<li>The postal code is allow only number</li>";
+    }
     if(empty($phone)){
         $error .= "<li>Your phone number is required</li>";
+    }
+    if(!is_numeric($phone)){
+        $error .= "<li>The phone field is allow only number</li>";
     }
 
     if(empty($password)){
@@ -80,36 +75,29 @@ if(isset($_POST['register'])){
     }
 
     if(empty($error )) {
-        //save in DB method
-        try {
-            $query = "
-            INSERT INTO users (first_name,last_name,street,city,postal_code,country,email,phone,password)
-            VALUES (:first_name,:last_name,:street,:city,:postal_code,:country,:email,:phone,:password);
-        ";
+        $userData = [
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'street'    => $street,
+            'postal_code'    => $postal_code,
+            'city'    => $city,
+            'country'    => $country,
+            'phone'    => $phone,
+            'email'    => $email,
+            'password' => $password,
+            // 'id'       => $userId,
+        ];
+          $result = $userDbHandler->addUser($userData);
 
-        $stmt = $dbconnect->prepare($query);
-        $stmt->bindValue(':first_name', $first_name );
-        $stmt->bindValue(':last_name', $last_name );
-        $stmt->bindValue(':street', $street );
-        $stmt->bindValue(':city', $city );
-        $stmt->bindValue(':postal_code', $postal_code );
-        $stmt->bindValue(':country', $country);
-        $stmt->bindValue(':phone', $phone );
-        $stmt->bindValue(':email', $email);
-        $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
-        $result = $stmt->execute(); // returns true/false
-
-        }catch(\PDOException $e){
-            throw new \PDOException($e->getMessage(), (int) $e->getCode());
-        }
+        
         if ($result) {
             $msg = '<div class="alert alert-success">Your registration is success</div>';
         } else {
             $msg = '<div class="error_msg">Register not success. Please try again later! </div>';
         }
-
     }
-}; 
+};
+
 ?>
 
     <!-- Hero Section Begin -->
@@ -197,7 +185,7 @@ if(isset($_POST['register'])){
  
                     <!-- Register Form Begin -->
 
-                    <form method="POST" action="#">
+                    <form method="POST" action="#" name="myform" id="myForm">
                 <fieldset>
                     <legend>Your information</legend>
                     
@@ -214,15 +202,16 @@ if(isset($_POST['register'])){
                     <p> <h4>Address</h4>
                         <label for="input1">Street</label> <br>
                         <input type="text" class="text" name="street" value= "<?=$street?>">
-                    
-                        <label for="input1">City:</label> <br>
+
+                        <label for="input1">Country:</label> <br>
+                        <input type="text" class="text" name="country" value= "<?=$country?>">  
+                                              <label for="input1">City:</label> <br>
                         <input type="text" class="text" name="city" value= "<?=$city?>">
 
                         <label for="input1">Postal code:</label> <br>
                         <input type="text" class="text" name="postal_code" value= "<?=$postal_code?>">
 
-                        <label for="input1">Country:</label> <br>
-                        <input type="text" class="text" name="country" value= "<?=$country?>">
+
                     </p>
 
 
@@ -271,6 +260,6 @@ if(isset($_POST['register'])){
         </div>
     <!-- Register Section End -->
 
- 
+
     <!-- Footer -->
     <?php include('layout/footer.php');?>
