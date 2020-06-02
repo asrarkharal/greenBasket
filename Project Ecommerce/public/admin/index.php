@@ -1,17 +1,8 @@
 <?php include('../../src/config.php'); ?>
-<?php include('layout/header.php');
-?>
+<?php include('layout/header.php'); ?>
 
 <?php
 $feedback = "";
-if (isset($_POST['deleteProductBtn'])) {
-    $id = $_POST['productHiddenID'];
-    $productDbHandler->deleteOneProduct($id);
-}
-if (isset($_POST['createProductBtn'])) {
-    $feedback = $productDbHandler->createProduct($_POST);
-}
-
 ?>
 
 <a href="../../public/index.php">Home</a>
@@ -27,10 +18,9 @@ if (isset($_POST['createProductBtn'])) {
 
             </div>
         </div>
-        <h5><?= $feedback ?></h5>
 
         <div class="col-sm-12 col-md-12 col-lg-9">
-            <form method="POST" action="#">
+            <form method="POST" action="create-Product.php">
                 <fieldset>
                     <legend>Create Product</legend>
 
@@ -48,7 +38,7 @@ if (isset($_POST['createProductBtn'])) {
                         <input type="text" class="text" name="imgUrl" value="">
                     </p>
                     <p>
-                        <input type="submit" name="createProductBtn" value="Create Product">
+                        <input type="submit" id="createProductBtnId" name="createProductBtn" value="Create Product">
                     </p>
                 </fieldset>
             </form>
@@ -57,54 +47,67 @@ if (isset($_POST['createProductBtn'])) {
     </div>
 </div>
 
-<hr>
 <!-- Create product ends here....-->
-
-
-<h3 style="color : green">Show all products</h3>
+<?php $feedback ?>
+<div id="feedBackProduct"></div>
 
 <?php
 $prods = $productDbHandler->getAllProducts();
 ?>
 
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <h3 style="color : green">List of Products</h3>
+    </div>
+    <div class="row justify-content-center">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Img url</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($prods as $val) { ?>
-        <tr>
-            <th scope="row"><?= $val['id'] ?></th>
-            <td><?= $val['title'] ?></td>
-            <td><?= $val['description'] ?></td>
-            <td><?= $val['price'] ?></td>
-            <td><?= $val['img_url'] ?></td>
-            <td>
-                <form method="POST" action="#">
-                    <input type="hidden" name="productHiddenID" value="<?= $val['id'] ?>">
-                    <input type="submit" name="deleteProductBtn" class="float-left mr-1" value="Delete">
+        <div class="col-10">
+            <table class="table">
+                <thead>
+                    <tr>
 
-                </form>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Img url</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    <?php foreach ($prods as $val) { ?>
+                    <tr>
 
-                <form action="edit_product_page.php" method="POST">
-                    <input type="hidden" name="editProductHiddenID" value="<?= $val['id'] ?>">
-                    <input type="submit" name="editProductBtn" value="Edit">
-                </form>
+                        <td><?= $val['title'] ?></td>
+                        <td><?= $val['description'] ?></td>
+                        <td><?= $val['price'] ?></td>
+                        <td><?= $val['img_url'] ?></td>
+                        <td>
+                            <form method="POST" action="#" class="float-left mr-3">
+                                <input type="hidden" name="productHiddenID" value="<?= $val['id'] ?>">
+                                <input type="submit" class="delProduct" name="deleteProductBtn" value="Delete">
 
-            </td>
-        </tr>
-        <?php } ?>
-    </tbody>
-</table>
+                            </form>
 
+                            <form action="edit_product_page.php" method="POST" class="float-left">
+                                <input type="hidden" name="editProductHiddenID" value="<?= $val['id'] ?>">
+                                <input type="submit" name="editProductBtn" value="Edit" class="float-right">
+                            </form>
+
+                        </td>
+                    </tr>
+                    <?php } ?>
+
+
+
+
+                    <script src="js/productAjaxFunction.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
 
 <?php
 include('layout/footer.php')
