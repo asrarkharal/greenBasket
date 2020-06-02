@@ -33,6 +33,7 @@ if (isset($_SESSION['first_name'])) {
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom  CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>Green-Basket.online</title>
