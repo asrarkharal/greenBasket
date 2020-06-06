@@ -4,10 +4,7 @@
 <?php
 $feedback = "";
 ?>
-
 <a href="../../public/index.php">Home</a>
-<a href="create_user.php">Users</a>
-
 
 <div class="container">
     <div class="contact-form spad">
