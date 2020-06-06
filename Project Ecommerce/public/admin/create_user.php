@@ -8,9 +8,7 @@ include ('layout/header.php');
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="container">
-        <div class="row">
-            
-            </div>
+      
             
                 <div class="content">
                     
@@ -194,7 +192,7 @@ include ('layout/header.php');
             <hr>
 
 </section>
-</div>
+
 <!----END FORM--->
 
 
@@ -205,78 +203,71 @@ include ('layout/header.php');
            $users =$adminuserDbHandler->getAllUsers();
            ?>
             <br>
-            
+           
              <section>
-            <h3>Users</h3>
              
-            <table  class="table table-hover">
+            <h3>Users</h3>
+            <div class=table-responsive>
+            <table  class="table table-hover table-fixed">
             	<thead>
 	            	<tr class= "table-success">
                        
-	            		<th scope="column">ID</th>
-	            		<th scope="column">Name</th>
-                        <th scope="column">Surname</th>
-	            		<th scope="column">E-mail</th>
-	            		<th scope="column">Password</th>
-                        <th scope="column">Phone</th>
-                        <th scope="column">Street</th>
-                        <th scope="column">Postal code</th>
-                        <th scope="column">City</th>
-                        <th scope="column">Country</th>
-                        <th scope="column">Action</th>
-                        <th scope="column"></th>
+	            		<th class="th-lg">ID</th>
+	            		<th class="th-lg">Name</th>
+                        <th class="th-lg">Surname</th>
+	            		<th class="th-lg">E-mail</th>
+	            		<th class="th-lg">Password</th>
+                        <th class="th-lg">Phone</th>
+                        <th class="th-lg">Street</th>
+                        <th class="th-lg">Postal code</th>
+                        <th class="th-lg">City</th>
+                        <th class="th-lg">Country</th>
+                        <th class="th-lg">Action</th>
+                        <th class="th-lg"></th>
 	            		
 	            	</tr>
-                  
-            	</thead>
-                </table>
+           	</thead>
                
-            	<tbody>
-                <?php foreach ($users as $key => $user) { ?>
-            	    
-                    <table  class="table table-hover">
-            	    <thead>
-            		<tr>
-                        <th scope="column"><?=$user['id']?></th>
-	            		<th scope="column"><?=htmlentities($user['first_name'])?></th>
-	            		<th scope="column"><?=htmlentities($user['last_name'])?></th>
-	            		<th scope="column"><?=htmlentities($user['email'])?></th>
-                        <th scope="column"><?=htmlentities($user['password'])?></th>
-                        <th scope="column"><?=htmlentities($user['phone'])?></th>
-                        <th scope="column"><?=htmlentities($user['street'])?></th>
-                        <th scope="column"><?=htmlentities($user['postal_code'])?></th>
-                        <th scope="column"><?=htmlentities($user['city'])?></th>
-                        <th scope="column"><?=htmlentities($user['country'])?></th>
-                        <th scope="column">
-                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button type="button" class="btn btn-info update" " >Update</button></a></th>
-                        <th scope ="column">
-                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button type="button" class="btn btn-danger remove">Delete</button></a></th>
-                        </tr>
-                    </thead>
-                   
+                <tbody >
+                
+                <?php 
+                foreach ($users as $row) { 
+            	
+                   echo'<tr class="table_row">';
+                   echo'<td>' .$row['id'] .'</td>';
+	               echo'<td>' .$row['first_name'] .'</td>';
+	               echo'<td>' .$row['last_name'] . '</td>';
+	               echo'<td>' .$row['email'] .'</td>';
+                   echo'<td>' .$row['password'] .'</td>';
+                   echo'<td>' .$row['phone'] .'</td>';
+                   echo'<td>' .$row['street'] .'</td>';
+                   echo'<td>' .$row['postal_code'] .'</td>';
+                   echo'<td>' .$row['city'] .'</td>';
+                   echo'<td>' .$row['country'] .'</td>';
+                   echo
+                        '<td><a class="btn btn-info update" 
+                        href="update_user.php?id='.$row['id'].'">Update</a></td>';
+                   echo 
+                        '<td><a class="btn btn-danger remove"
+                         href="delete_user.php?id='.$row['id'].'">Delete</a>';
+                   echo'</tr>';
+                }
+                ?>
+              
+                </tbody>
                 </table>
               
-                    <?php } ?>
-            	</tbody>
-            </table>
+                
+ </section>
 
-        
-            </div>
-    </section>
-
-    
-
-          
-            </div>
-        </div>
     </div>
-</section>
-<!-- Hero Section End -->
 
+             
+<!-- Hero Section End -->
+<section>
 <!-- Footer -->
 <?php include('layout/footer.php'); ?>
-</body>
-
+                </section>
 <script type="text/javascript">
     $(".remove").click(function(){
         var id = $(this).parents("tr").attr("id");
@@ -300,7 +291,7 @@ include ('layout/header.php');
 
 <script type="text/javascript">
     $(".update").click(function(){
-        var id = $(this).parents("tr").attr("id");
+        var id = $(this).parents("tr").attr("id");{
 
 
         if(confirm('Are you sure to update this user ?'));
@@ -318,10 +309,12 @@ include ('layout/header.php');
                
             });
         }
-    });
+    };
 
 
 </script>
 
+
+</body>
 
 </html>
