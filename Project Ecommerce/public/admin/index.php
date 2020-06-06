@@ -4,7 +4,7 @@
 <?php
 $feedback = "";
 ?>
-<a href="../../public/index.php">Home</a>
+
 
 <div class="container">
     <div class="contact-form spad">

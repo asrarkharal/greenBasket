@@ -11,28 +11,7 @@ include ('layout/header.php');
         <div class="row">
             
             </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+46 11.222.3333</h5>
-                            <span>support 24/7 </span>
-                        </div>
-                    </div>
-                </div>
+            
                 <div class="content">
                     
                            
@@ -158,10 +137,10 @@ include ('layout/header.php');
 <section>
 <form method="POST" action="#">
 <?=$msg?>          
-                    <h4>Create new User</h4>
+                    <h3 style="color:green;">Create new User</h3>
                     
-                    <form>
-                    <div class="form-row">
+                    <form >
+                    <div class="form-row" style="margin-top:20px; margin-left:50px;">
                     <div class="form-group col-md-6">
                         <label for="input1">Name:</label> <br>
                         <input type="text" class="text" name="first_name" value="<?=$first_name?>">
@@ -171,7 +150,7 @@ include ('layout/header.php');
                         <input type="text" class="text" name="last_name" value="<?=$last_name?>">
                     </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" style="margin-left:50px;">
                     <div class="form-group col-md-6">
                         <label for="input1">E-mail:</label> <br>
                         <input type="text" class="text" name="email" value="<?=$email?>">
@@ -181,7 +160,7 @@ include ('layout/header.php');
                         <input type="text" class="text" name="password" value ="<?=$password?>">
                     </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" style="margin-left:50px;">
                     <div class="form-group col-md-6"> 
                         <label for="input2">Phone:</label> <br>
                         <input type="text" class="text" name="phone" value ="<?=$phone?>">
@@ -191,7 +170,7 @@ include ('layout/header.php');
                         <input type="text" class="text" name="street" value="<?=$street?>">
                     </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" style="margin-left:50px">
                     <div class="form-group col-md-6"> 
                         <label for="input1">Postal Code:</label> <br>
                         <input type="text" class="text" name="postal_code" value ="<?=$street?>">
@@ -206,8 +185,8 @@ include ('layout/header.php');
                     </div>
                     </div>
                     <p>
-                    <input class="btn btn-success" type="submit"  name="submit" value="Create">| 
-                        <a href="../index.php">Go back</a>
+                    <input class="btn btn-success" type="submit"  name="submit" value="Create" style="margin-left:10%;">| 
+                        <a href="../admin_index.php">Go back</a>
                     </p>
                   
               
@@ -215,6 +194,7 @@ include ('layout/header.php');
             <hr>
 
 </section>
+</div>
 <!----END FORM--->
 
 
@@ -243,6 +223,8 @@ include ('layout/header.php');
                         <th scope="column">Postal code</th>
                         <th scope="column">City</th>
                         <th scope="column">Country</th>
+                        <th scope="column">Action</th>
+                        <th scope="column"></th>
 	            		
 	            	</tr>
                   
@@ -265,15 +247,15 @@ include ('layout/header.php');
                         <th scope="column"><?=htmlentities($user['postal_code'])?></th>
                         <th scope="column"><?=htmlentities($user['city'])?></th>
                         <th scope="column"><?=htmlentities($user['country'])?></th>
-	            		<th scope="column">
-                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button type="button" class="btn btn-info update" >Update</button></a></th>
+                        <th scope="column">
+                        <a href="update_user.php?id=<?=$user['id']?>" class="edit"><button type="button" class="btn btn-info update" " >Update</button></a></th>
                         <th scope ="column">
-                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button type="button" class="btn btn-danger remove">Delete</button></a>
-	            		</th>
-	            	</tr>
+                        <a href="delete_user.php?id=<?=$user['id']?>" class="trash"><button type="button" class="btn btn-danger remove">Delete</button></a></th>
+                        </tr>
                     </thead>
+                   
                 </table>
-
+              
                     <?php } ?>
             	</tbody>
             </table>
