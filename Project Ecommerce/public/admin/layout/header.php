@@ -159,8 +159,8 @@ if (isset($_SESSION['first_name'])) {
                                 <a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name     
                              ";
                                 } else {
-                                    $aboveNav = "<ul><li> <a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a></li>
-                                </ul>";
+                                    $aboveNav = "<a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a>
+                                ";
                                 }
                                 echo $aboveNav;
                                 ?>
@@ -186,8 +186,8 @@ if (isset($_SESSION['first_name'])) {
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="../../public/index.php">Home</a></li>
-                            <li><a href="promotion.php">Promotion</a></li>
-                            <li><a href="../../public/product_list_page.php">Products</a>
+                            <li><a href="create_user.php">Users</a></li>
+                            <li><a href="index.php">Products</a>
 
                                 <ul class="header__menu__dropdown">
                                     <li><a href="ProudctAll.php">All products</a></li>
@@ -195,8 +195,8 @@ if (isset($_SESSION['first_name'])) {
                                     <li><a href="checkout.php">Check Out</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.php">Blog</a></li>
-                            <li><a href="./contact.php">Contact</a></li>
+                            <li><a href="../admin_index.php">Admin Dashboard</a></li>
+                          
                         </ul>
                     </nav>
                 </div>
