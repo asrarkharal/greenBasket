@@ -21,11 +21,20 @@ $prods = $productDbHandler->getAllProducts();
                 <div class="card-body">
                     <h5 class="card-title"><?= $val['title'] ?></h5>
                     <p class="card-text"><?= $val['description'] ?></p>
-
-                    <form action="product_page.php" method="POST">
+                    <p><?= $val['price'] ?></p>
+                    <form action="product_page.php" method="GET">
                         <input type="hidden" name="productHiddenID" value="<?= $val['id'] ?>">
-                        <input type="submit" name="productDetailBtn" value="Details" class="btn btn-primary">
+                        <input type="submit" name="productDetailBtn" value="Details" class="btn btn-link">
                     </form>
+
+
+                    <form action="admin/add-cart-item.php" method="post">
+                        <input type="hidden" name="productId" value="<?= $val['id'] ?>">
+                        Qty: <input type="number" name="quantity" value="" min=0 max=5>
+                        <input type="submit" name="addToCart" value="Add to Cart" class="btn btn-primary">
+                    </form>
+
+
                 </div>
             </div>
             <?php } ?>
