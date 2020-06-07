@@ -1,7 +1,7 @@
 <?php
 require('../src/config.php');
 //     require(SRC_PATH . 'dbconnect.php');
-include('layout/header.php');
+include('admin/layout/header.php');
 ?>
 <hr>
 <!----DASHBOARD--->

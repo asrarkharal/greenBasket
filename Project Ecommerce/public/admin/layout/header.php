@@ -212,17 +212,20 @@ if (isset($_SESSION['first_name'])) {
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="../../public/index.php">Home</a></li>
-                            <li><a href="promotion.php">Promotion</a></li>
-                            <li><a href="../public/product_list_page.php">Products</a>
-
+                            <li><a href="about.php">About</a></li>
+                            <li><a href="create_user.php">Users</a></li>
+                            <li><a href="index.php">Products</a>
+                           
+                          
                                 <ul class="header__menu__dropdown">
+                                    
                                     <li><a href="ProudctAll.php">All products</a></li>
-                                    <li><a href="shoping-cart.php">Shoping Cart</a></li>
+                                    <li><a href="shoping-cart.php">Shopping Cart</a></li>
                                     <li><a href="checkout.php">Check Out</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.php">Blog</a></li>
-                            <li><a href="./contact.php">Contact</a></li>
+                            
                         </ul>
                     </nav>
                 </div>
