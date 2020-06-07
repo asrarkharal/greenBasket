@@ -35,6 +35,10 @@ if (isset($_POST['updateProductBtn'])) {
     $description = $result['pDescription'];
     $price = $result['pPrice'];
     $imgurl = $result['pImg'];
+
+    if (empty($result)) {
+        $errorUl = "Product Updated !";
+    }
 }
 ?>
 
@@ -52,7 +56,7 @@ if (isset($_POST['updateProductBtn'])) {
         <div class="col-sm-12 col-md-12 col-lg-9">
             <form method="POST" action="#">
                 <fieldset>
-                    <legend>Create Product</legend>
+                    <legend>Update Product</legend>
 
                     <p>
                         <label for="input1">Title:</label> <br>

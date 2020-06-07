@@ -3,56 +3,84 @@ require('../src/config.php');
 include('layout/header.php');
 ?>
 <?php
-if (isset($_POST['productDetailBtn'])) {
-    $sId = $_POST['productHiddenID'];
-    $prods = $productDbHandler->getOneProduct($sId);
-}
+$title = "";
+$description = "";
+$price = "";
+$img = "";
+$productId = "";
 ?>
 
 <?php
-$id = $_POST['productHiddenID'];
-$prods = $productDbHandler->getOneProduct($id);
+if (isset($_GET['productDetailBtn'])) {
+    $sId = $_GET['productHiddenID'];
+    $prods = $productDbHandler->getOneProduct($sId);
 
+    foreach ($prods as $val) {
+        $title = $val['title'];
+        $description = $val['description'];
+        $price = $val['price'];
+        $img = $val['img_url'];
+        $productId = $val['id'];
+    }
+}
 ?>
-<?php foreach ($prods as $val) { ?>
-
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-            <div class="card">
-                <img class="card-img" src="img/categories/cat-2.jpg" alt="Vans">
-                <div class="card-img-overlay d-flex justify-content-end">
-                    <a href="#" class="card-link text-danger like">
-                        <i class="fas fa-heart"></i>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title"><?= $val['title'] ?></h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Style: VA33TXRJ5</h6>
-                    <p class="card-text"><?= $val['description'] ?></p>
-
-                    <div class="buy d-flex justify-content-between align-items-center">
-                        <div class="price text-success">
-                            <h5 class="mt-4">$<?= $val['price'] ?></h5>
-                        </div>
-                        <a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+<!-- New try for product page -->
+<div class="container" id="product_page_container">
+    <div class="row">
+        <div class="col-md-5">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img\featured\feature-1.jpg" class="d-block w-100" alt="...">
                     </div>
+                    <div class="carousel-item">
+                        <img src="img\cart\cart-1.jpg" class="d-block w-100" alt="...">
+                    </div>
+
                 </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
-        <!-- -->
+        <div class="col-col-md-7">
+            <p class="newarrival text-center">Title</p>
+            <h2><?= $title ?></h2>
+            <p>Product Code - xybzeee</p>
+            <p><?= $description ?></p>
+            <p class="price_product"><?= $price ?> Kr</p>
+            <p><b>Availability - </b>In Stock</p>
+            <p><b>Condition - </b>Fresh</p>
+            <p><b>Category - </b>Fruits</p>
+            <form action="admin/add-cart-item.php" method="POST" id="product_page_form">
+                <label for="qt">Quantity</label>
+                <input type="hidden" name="productId" value="<?= $productId ?>">
+                <input type="number" name="quantity" value="1" min=0>
+                <button type="submit" name="addToCart" class="btn btn-default cart-btn">Add to Cart</button>
+                <!-- <input type="submit" name="addToCart" value="Add to Cart" class="btn btn-default" id="cart-btn-1"> -->
+            </form>
 
+
+
+        </div>
     </div>
 </div>
-<!-- 1-->
 
-<!-- BootStrap Test product ends here-->
-
-<?php } ?>
 <div class="row d-flex justify-content-center">
-    <a href="product_list_page.php">Go Back to All Products</a>
+    <a href="product_list_page.php">Back All Products</a>
 </div>
 <hr>
+
+
+
+
+
+
 
 <?php
 include('layout/footer.php');

@@ -1,0 +1,43 @@
+#product_page_container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.newarrival {
+    background: green;
+    width: 50px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+.col-md-7 h2 {
+    color: #555;
+}
+
+.price_product {
+    color: #FE980F;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+#product_page_form input {
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 28px;
+    text-align: center;
+    width: 50px;
+
+}
+
+.cart-btn {
+
+    background: #FE980F;
+    color: #FFFFFF;
+    font-size: 15px;
+    margin-left: 20px;
+
+}

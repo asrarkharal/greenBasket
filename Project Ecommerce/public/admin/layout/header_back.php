@@ -1,5 +1,6 @@
 <?php
-//session_start();
+require('../src/config.php');
+// session_start();
 //unset($_SESSION['cartItems']);
 if (!isset($_SESSION['cartItems'])) {
     $_SESSION['cartItems'] = [];
@@ -20,17 +21,16 @@ foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
     $cartTotalSum += $cartItem['price'] * $cartItem['quantity'];
 }
 
-
-// Asrar Debugging cart Items above this
+// Asrar Debugging cart Items above this line
 
 if (isset($_SESSION['first_name'])) {
     $first_name = $_SESSION['first_name'];
     $userId =  $_SESSION['id'];
     // exit;
 }
-
-
-
+//require(SRC_PATH . 'dbconnect.php');    
+//debug($userId);
+//die;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,23 +56,18 @@ if (isset($_SESSION['first_name'])) {
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- custom  CSS -->
-
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/product_Page_Style.css" type="text/css">
-
-    <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>Green-Basket.online</title>
-
 </head>
 
 <body>
-    <!-- Page Preloder -->
+    <!-- Page Preloder 
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
+    -->
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
@@ -84,7 +79,7 @@ if (isset($_SESSION['first_name'])) {
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$2000.00</span></div>
+            <div class="header__cart__price">item: <span>$200.00</span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -121,9 +116,9 @@ if (isset($_SESSION['first_name'])) {
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.php">Home</a></li>
+                <li class="active"><a href="../../public/index.php">Home</a></li>
                 <li><a href="promotion.php">Promotion</a></li>
-                <li><a href="../public/product_list_page.php">Products</a>
+                <li><a href="#">Products</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="ProudctAll.php">All products</a></li>
                         <li><a href="shoping-cart.php">Shoping Cart</a></li>
@@ -187,8 +182,8 @@ if (isset($_SESSION['first_name'])) {
                                 <a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name     
                              ";
                                 } else {
-                                    $aboveNav = "<ul><li> <a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a></li>
-                                </ul>";
+                                    $aboveNav = "<a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a>
+                                ";
                                 }
                                 echo $aboveNav;
                                 ?>
@@ -213,9 +208,9 @@ if (isset($_SESSION['first_name'])) {
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="promotion.php">Promotion</a></li>
-                            <li><a href="../public/product_list_page.php">Products</a>
+                            <li class="active"><a href="../../public/index.php">Home</a></li>
+                            <li><a href="create_user.php">Users</a></li>
+                            <li><a href="index.php">Products</a>
 
                                 <ul class="header__menu__dropdown">
                                     <li><a href="ProudctAll.php">All products</a></li>
@@ -223,67 +218,20 @@ if (isset($_SESSION['first_name'])) {
                                     <li><a href="checkout.php">Check Out</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.php">Blog</a></li>
-                            <li><a href="./contact.php">Contact</a></li>
+                            <li><a href="../admin_index.php">Admin Dashboard</a></li>
+
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
-                            <li><button class="btn btn-primary" data-toggle="collapse" data-target="#content"><a
-                                        href="#"><i class="fa fa-shopping-bag"></i>
-                                        <span><?= $cartItemCount ?></span></a></button>
-
-                            </li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
+                        <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
-
-                    <!-- shoping Items -->
-                    <ul id="content" class="collapse border p-2 position-absolute"
-                        style="z-index: 99999; background-color: white;">
-                        <div class="border-top mt-2 d-flex justify-content-center">
-                            <form action="" method="POST" class="mt-2"><input type="submit" name="emptyCartBtn"
-                                    value="Clear Cart">
-                            </form>
-                        </div>
-
-                        <?php foreach ($_SESSION['cartItems'] as $cartId => $cartItem) { ?>
-                        <li class="m-1" style="list-style-type: none;">
-                            <div class="row">
-                                <div class="col-12">
-                                    <span class="item">
-                                        <span class="item-left">
-                                            <img id="cartImg" src="cart/<?= $cartItem['img_url'] ?>" alt="" width='20%'>
-                                            <span class="item-info">
-                                                <span class="m-1"><?= $cartItem['title'] ?></span>
-                                                <span class="m-1"><?= $cartItem['price'] ?> kr</span>
-                                                <span class="m-1"> Qty: <?= $cartItem['quantity'] ?></span>
-
-                                            </span>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <?php } ?>
-
-
-                        <div class="border-top mt-2">
-                            <span>Total : $<?= $cartTotalSum ?></span>
-                        </div>
-                        <div class="border-top mt-2 d-flex justify-content-center">
-                            <form action="../public/admin/checkout.php" method="POST" class="mt-2"><input type="submit"
-                                    name="checkOutBtn" value="Checkout">
-                            </form>
-                        </div>
-
-
-                    </ul>
                 </div>
-
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
