@@ -11,92 +11,7 @@ $postal_code     = '';
 $phone           = '';
 $email           = '';
 $error           = '';
-$msg             = '';
- 
-if(isset($_POST['register'])){
-    $first_name             = trim($_POST['first_name']);
-    $last_name              = trim($_POST['last_name']);
-    $city                   = trim($_POST['city']);
-    $country                = trim($_POST['country']);
-    $street                 = trim($_POST['street']);
-    $postal_code            = trim($_POST['postal_code']);
-    $phone                  = trim($_POST['phone']);
-    $email                  = trim($_POST['email']);
-    $password               = trim($_POST['password']);
-    $confirmPassword        = trim($_POST['confirmPassword']);
-
-    if(empty($first_name)){
-        $error .= "<li>First name is required</li>";
-    }
-    if(empty($last_name)){
-        $error .= "<li>Last name is required</li>";
-    }
-    if(empty($city)){
-        $error .= "<li>City is required</li>";
-    }
-    if(empty($country)){
-        $error .= "<li>Country is required</li>";
-    }
-    if(empty($street)){
-        $error .= "<li>Your street address is required</li>";
-    }
-    if(empty($postal_code)){
-        $error .= "<li>Your postal code is required</li>";
-    }
-    if(!is_numeric($postal_code)){
-        $error .= "<li>The postal code is allow only number</li>";
-    }
-    if(empty($phone)){
-        $error .= "<li>Your phone number is required</li>";
-    }
-    if(!is_numeric($phone)){
-        $error .= "<li>The phone field is allow only number</li>";
-    }
-
-    if(empty($password)){
-        $error .= "<li>Password is required</li>";
-    }
-
-    if(!empty($password) && strlen($password)<6){
-        $error .= "<li>Password has to be at least 6 characters</li>";
-    }
-    if($confirmPassword !== $password) {
-        $error .= "<li>You have to confirm the same password </li>";
-    }
-    if(empty($email)){
-        $error .= "<li>E-mail is required</li>";
-    }
-    if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-        $error .= "<li>Not valid e-mail </li>";
-    }
-
-    if($error){
-        $msg .= "<ul class='alert alert-warning'>{$error}</ul>";
-    }
-
-    if(empty($error )) {
-        $userData = [
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'street'    => $street,
-            'postal_code'    => $postal_code,
-            'city'    => $city,
-            'country'    => $country,
-            'phone'    => $phone,
-            'email'    => $email,
-            'password' => $password,
-            // 'id'       => $userId,
-        ];
-          $result = $userDbHandler->addUser($userData);
-
-        
-        if ($result) {
-            $msg = '<div class="alert alert-success">Your registration is success</div>';
-        } else {
-            $msg = '<div class="error_msg">Register not success. Please try again later! </div>';
-        }
-    }
-};
+$msg           = '';
 
 ?>
 
@@ -174,87 +89,88 @@ if(isset($_POST['register'])){
     <!-- Register Section Begin -->
         <div class="container">
             <div class="contact-form spad">
- 
-                    <div class="col-lg-8">
-                        <div class="contact__form__title">
-                            <!-- <h2>Register</h2> 
-                            <h4>Please Register to be our customer </h4>-->
-
-                        </div>
-                    </div>
- 
                     <!-- Register Form Begin -->
 
-                    <form method="POST" action="#" name="myform" id="myForm">
-                <fieldset>
+                    <form method="POST" action="add_user.php" name="myForm" id="myForm">
+      <fieldset>
                     <legend>Your information</legend>
                     
                     <!-- Visa errormeddelanden -->
-                    <?=$msg?> 
+                     <div class="" role="alert" id="form-message"><?=$msg?></div>    
+        <div class="form-group" >
+             <div class="col-lg-10">
+                    <p> <h5>Name-Last name</h5></p>
+                    <div class="row">
+                        <div class="col-lg-6">                 
+                        <!-- <label for="input1">First name:</label> <br> -->
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder='First-name'value= "<?=$first_name?>">
+                        </div>                   
+                        <div class="col-lg-6">  
+                        <!-- <label for="input1">Last name:</label> <br> -->
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder='Last name'value= "<?=$last_name?>">
+                        </div> 
+                    </div>   
                     
-                    <p>
-                        <label for="input1">First name:</label> <br>
-                        <input type="text" class="text" name="first_name" value= "<?=$first_name?>">
-                    
-                        <label for="input1">Last name:</label> <br>
-                        <input type="text" class="text" name="last_name" value= "<?=$last_name?>">
-                    </p>
-                    <p> <h4>Address</h4>
-                        <label for="input1">Street</label> <br>
-                        <input type="text" class="text" name="street" value= "<?=$street?>">
+                    <p> <h5>Address</h5></p>
 
-                        <label for="input1">Country:</label> <br>
-                        <input type="text" class="text" name="country" value= "<?=$country?>">  
-                                              <label for="input1">City:</label> <br>
-                        <input type="text" class="text" name="city" value= "<?=$city?>">
+                    <div class="row">
+                        <div class="col-lg-6"> 
+                        <!-- <label for="input1">Street</label> <br> -->
+                        <input type="text" class="form-control" name="street" id="street" placeholder='Street address'value= "<?=$street?>">
+                        </div>
+                        <div class="col-lg-6"> 
+                        <!-- <label for="input1">Country:</label> <br> -->
+                        <input type="text" class="form-control" name="country" id="country" placeholder='Country'value= "<?=$country?>">  
+                        </div>
+                    </div>
 
-                        <label for="input1">Postal code:</label> <br>
-                        <input type="text" class="text" name="postal_code" value= "<?=$postal_code?>">
+                    <div class="row">
+                            <div class="col-lg-6"> 
+                            <!-- <label for="input1">City:</label> <br> -->
+                            <input type="text" class="form-control" name="city" id="city" placeholder='City'value= "<?=$city?>">
+                            </div>
+                            <div class="col-lg-6"> 
+                            <!-- <label for="input1">Postal code:</label> <br> -->
+                            <input type="text" class="form-control" name="postal_code" id="postal_code" placeholder='Postal code'value= "<?=$postal_code?>">
+                            </div>
+                    </div>
 
+                    <p><h5> contact info</h5></p>
+                        
+                    <div class="row">
+                        <div class="col-lg-6">  
+                        <!-- <label for="input2">E-mail:</label> <br> -->
+                        <input type="text" class="form-control" name="email" id="email" placeholder='Your e-mail' value= "<?=$email?>">
+                        </div>
+                        <div class="col-lg-6">  
+                        <!-- <label for="input2">Phone:</label> <br> -->
+                        <input type="text" class="form-control" name="phone"  id="phone" placeholder='Telephone number'value= "<?=$phone?>">
+                        </div>
+                    </div>
 
-                    </p>
+                    <p> <h5> password</h5></p>
+                    <div class="row">
+                        <div class="col-lg-6">  
+                        <!-- <label for="input2">Password:</label> <br> -->
+                        <input type="password" placeholder='password' class="form-control" name="password" id="password">
+                        </div> 
+                        <div class="col-lg-6">  
+                            <!-- <label for="input2">Confirm Password:</label> <br> -->
+                            <input type="password" placeholder='Confirm password' class="form-control" name="confirmPassword" id="confirmPassword">
+                        </div>
+                    </div>   
+                    <div class="row">
+                     <p class="center"><input class="btn btn-outline-secondary" type="submit" name="registerBtn" id="registerBtn" value="Register"></p>
+                     </div>
+                </div>
+              </div>
 
-
-                    <p><h4>Contact</h4>
-                        <label for="input2">E-mail:</label> <br>
-                        <input type="text" class="text" name="email" value= "<?=$email?>">
-
-                        <label for="input2">Phone:</label> <br>
-                        <input type="text" class="text" name="phone" value= "<?=$phone?>">
-
-                    </p>
-                    <p>
-                        <label for="input2">Password:</label> <br>
-                        <input type="password" class="text" name="password">
-                    </p>
-                    <p>
-                        <label for="input2">Confirm Password:</label> <br>
-                        <input type="password" class="text" name="confirmPassword">
-                    </p>
-                    <p>
-                        <input type="submit" name="register" value="Register">
-                    </p>
-                </fieldset>
-            </form>        
+ 
+               </div>        
+                      
+            </fieldset>
+    </form>       
             <hr>
-
-<!--              
-                                <form action="#">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <input type="text" placeholder="Your name">
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <input type="text" placeholder="Your Email">
-                                        </div>
-                                        <div class="col-lg-12 text-center">
-                                            <textarea placeholder="Your message"></textarea>
-                                            <button type="submit" class="site-btn">Register</button>
-                                        </div>
-                                    </div>
-                                </form> -->
-               
-                    <!-- Register Form End -->
 
             </div>
         </div>
