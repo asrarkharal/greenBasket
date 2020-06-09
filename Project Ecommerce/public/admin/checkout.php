@@ -11,7 +11,7 @@ include('layout/header.php');
             <div class="col-lg-12">
                 <div class="shoping__cart__table">
 
-                    <table class="table table-bordered">
+                    <table class="table ">
                         <thead>
                             <tr>
                                 <th scope="col" style="width : 10%">Product</th>
@@ -62,7 +62,7 @@ include('layout/header.php');
                 </div>
             </div>
         </div>
-        <div class="row">
+        <di v class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
                     <a href="../index.php" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
@@ -89,7 +89,7 @@ include('layout/header.php');
                     <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
                 </div>
             </div>
-        </div>
+        </di>
     </div>
 </section>
 
