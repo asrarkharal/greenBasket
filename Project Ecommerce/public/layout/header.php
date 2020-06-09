@@ -228,61 +228,12 @@ if (isset($_SESSION['first_name'])) {
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
-                            <li><button class="btn btn-primary" data-toggle="collapse" data-target="#content"><a
-                                        href="#"><i class="fa fa-shopping-bag"></i>
-                                        <span><?= $cartItemCount ?></span></a></button>
 
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- shoping Items -->
-                    <ul id="content" class="collapse border p-2 position-absolute"
-                        style="z-index: 99999; background-color: white;">
-                        <div class="border-top mt-2 d-flex justify-content-center">
-                            <form action="" method="POST" class="mt-2"><input type="submit" name="emptyCartBtn"
-                                    value="Clear Cart">
-                            </form>
-                        </div>
-
-                        <?php foreach ($_SESSION['cartItems'] as $cartId => $cartItem) { ?>
-                        <li class="m-1" style="list-style-type: none;">
-                            <div class="row">
-                                <div class="col-12">
-                                    <span class="item">
-                                        <span class="item-left">
-                                            <img id="cartImg" src="cart/<?= $cartItem['img_url'] ?>" alt="" width='20%'>
-                                            <span class="item-info">
-                                                <span class="m-1"><?= $cartItem['title'] ?></span>
-                                                <span class="m-1"><?= $cartItem['price'] ?> kr</span>
-                                                <span class="m-1"> Qty: <?= $cartItem['quantity'] ?></span>
-
-                                            </span>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <?php } ?>
+                <!-- cart start -->
+                <?php include("cart-asrar.php"); ?>
+                <!-- cart ends -->
 
 
-                        <div class="border-top mt-2">
-                            <span>Total : $<?= $cartTotalSum ?></span>
-                        </div>
-                        <div class="border-top mt-2 d-flex justify-content-center">
-                            <form action="../public/admin/checkout.php" method="POST" class="mt-2"><input type="submit"
-                                    name="checkOutBtn" value="Checkout">
-                            </form>
-                        </div>
-
-
-                    </ul>
-                </div>
 
             </div>
             <div class="humberger__open">

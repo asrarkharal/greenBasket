@@ -15,10 +15,13 @@ if (isset($_POST['emptyCartBtn'])) {
 
 $cartItemCount = count($_SESSION['cartItems']);
 $cartTotalSum = 0;
+$cartTotalSumExcMom = 0;
 
 foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
     $cartTotalSum += $cartItem['price'] * $cartItem['quantity'];
 }
+
+$cartTotalSumExcMom = $cartTotalSum - ($cartTotalSum * 25) / 100;
 
 
 // Asrar Debugging cart Items above this
@@ -215,17 +218,17 @@ if (isset($_SESSION['first_name'])) {
                             <li><a href="about.php">About</a></li>
                             <li><a href="create_user.php">Users</a></li>
                             <li><a href="index.php">Products</a>
-                           
-                          
+
+
                                 <ul class="header__menu__dropdown">
-                                    
+
                                     <li><a href="ProudctAll.php">All products</a></li>
                                     <li><a href="shoping-cart.php">Shopping Cart</a></li>
                                     <li><a href="checkout.php">Check Out</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.php">Blog</a></li>
-                            
+
                         </ul>
                     </nav>
                 </div>
