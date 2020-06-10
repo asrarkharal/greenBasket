@@ -22,7 +22,7 @@
                             <li><a href="#">About Our Shop</a></li>
                             <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="../public/admin_index.php">Privacy Policy Admin</a></li>
+                            <li><a href="admin/admin_index.php">Privacy Policy Admin</a></li>
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
                         <ul>
