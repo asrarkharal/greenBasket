@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
     // checkLogginSessionForUserProfile();
     // $first_name = $_SESSION['first_name'];
 ?> 
@@ -8,49 +7,6 @@
 
 <head>
  	<meta charset="utf-8">
-=======
-//session_start();
-//unset($_SESSION['cartItems']);
-if (!isset($_SESSION['cartItems'])) {
-    $_SESSION['cartItems'] = [];
-}
-
-if (isset($_POST['emptyCartBtn'])) {
-    $_SESSION['cartItems'] = [];
-}
-
-// echo "<pre>";
-// print_r($_SESSION['cartItems']);
-// echo "</pre>";
-
-$cartItemCount = count($_SESSION['cartItems']);
-$cartTotalSum = 0;
-$cartTotalSumExcMom = 0;
-
-foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
-    $cartTotalSum += $cartItem['price'] * $cartItem['quantity'];
-}
-
-$cartTotalSumExcMom = $cartTotalSum - ($cartTotalSum * 25) / 100;
-
-
-// Asrar Debugging cart Items above this
-
-if (isset($_SESSION['first_name'])) {
-    $first_name = $_SESSION['first_name'];
-    $userId =  $_SESSION['id'];
-    // exit;
-}
-
-
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="utf-8">
->>>>>>> 22e8f357c3e18df175f2203c50618dea206c406c
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
@@ -68,19 +24,11 @@ if (isset($_SESSION['first_name'])) {
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
 	    <!-- custom  CSS -->
-<<<<<<< HEAD
         <link rel="stylesheet" href="../css/style.css" type="text/css">
         <link rel="stylesheet" href="../user/css/main.css" type="text/css">
 
     <link rel="stylesheet" href="css/main.css" type="text/css">
- 
-=======
-        <link rel="stylesheet" href="css/style.css" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        
-    <link rel="stylesheet" href="css/main.css" type="text/css">
-   
->>>>>>> 22e8f357c3e18df175f2203c50618dea206c406c
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Green-Basket.online</title>
 </head>
 
@@ -149,16 +97,14 @@ if (isset($_SESSION['first_name'])) {
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-<<<<<<< HEAD
-						<li><a href="index.php" class=""><i class="lnr lnr-home"></i> <span>Admin-Dashboard</span></a></li>
+						<li><a href="admin_index.php" class=""><i class="lnr lnr-home"></i> <span>Admin-Dashboard</span></a></li>
 
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Customer</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="all_customer.php" class="">All customer</a></li>
-									<li><a href="add_customer.php" class="">Add customer</a></li>
-									<li><a href="#" class="">Manage Order</a></li>
+									<li><a href="create_user.php" class="">All customer</a></li>
+									
 								</ul>
 							</div>
 						</li>
@@ -166,22 +112,10 @@ if (isset($_SESSION['first_name'])) {
 							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-code"></i> <span>Products</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages2" class="collapse ">
 								<ul class="nav">
-									<li><a href="#" class="">All productsr</a></li>
-									<li><a href="add_product.php" class="">Add product</a></li>
-									<li><a href="#" class="">Manage product</a></li>
+									<li><a href="index.php" class="">All products</a></li>
+								
 								</ul>
 							</div>
-=======
-						<li><a href="admin_index.php" class=""><i class="lnr lnr-home"></i> <span>Admin-Dashboard</span></a></li>
-
-						<li>
-							<a href="create_user.php" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Customer</span> </a>
-							
-						</li>
-						<li>
-							<a href="index.php" data-toggle="collapse" class="collapsed"><i class="lnr lnr-code"></i> <span>Products</span> </i></a>
-							
->>>>>>> 22e8f357c3e18df175f2203c50618dea206c406c
 						</li>
 						<li><a href="#" class=""><i class="lnr lnr-dice"></i> <span>Customer service</span></a></li>
 						<li><a href="#" class=""><i class="lnr lnr-cog"></i> <span>Setting</span></a></li>
@@ -190,10 +124,4 @@ if (isset($_SESSION['first_name'])) {
 				</nav>
 			</div>
 		</div>
-<<<<<<< HEAD
 		<!-- END LEFT SIDEBAR -->
-=======
-		<!-- END LEFT SIDEBAR -->
-
-        <script src ="js/admin.js"></script>
->>>>>>> 22e8f357c3e18df175f2203c50618dea206c406c

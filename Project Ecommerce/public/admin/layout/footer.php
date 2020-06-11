@@ -1,7 +1,7 @@
     <!-- Footer Section Begin -->
-    <footer class="sticky-footer">
+    <footer class="footer-spad">
 			<div  class="container fixed-bottom" >
-				<p  class="copyright">&copy; 2020 <a href="#" target="_blank">Green-basket.online</a>. All Rights Reserved.</p>
+				<p style="text-align:center;" class="copyright">&copy; 2020 <a href="#" target="_blank">Green-basket.online</a>. All Rights Reserved.</p>
 			</div>
 		</footer>
 	</div>

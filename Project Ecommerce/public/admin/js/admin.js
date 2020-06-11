@@ -115,10 +115,10 @@ $(function () {
     animate: 800,
   });
 
-  var updateInterval = 3000; // in milliseconds
+  var updateInterval = 5000; // in milliseconds
 
   setInterval(function () {
-    var randomVal;
+    var randomVal="";
     randomVal = getRandomInt(0, 100);
 
     sysLoad.data('easyPieChart').update(randomVal);

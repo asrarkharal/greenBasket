@@ -6,6 +6,8 @@ include ('layout/header.php');
 ?>
 
 <!-- Hero Section Begin -->
+<div class="main">
+
 <section class="hero">
     <div class="container">
       
@@ -134,9 +136,9 @@ include ('layout/header.php');
 <!--  FORM USER INSERT---->
 <section>
 <form method="POST" action="#">
-<?=$msg?>           <hr>
-                    <h3 style="color:green; text-align:center;">Create new User</h3>
-                    <hr>
+<?=$msg?>          
+                    <h2 style="color:green;">Create new User</h2>
+                    
                     <form >
                     <div class="form-row" style="margin-top:20px; margin-left:50px;">
                     <div class="form-group col-md-6">
@@ -183,8 +185,8 @@ include ('layout/header.php');
                     </div>
                     </div>
                     <p>
-                    <input class="btn btn-success" type="submit"  name="submit" value="Create" style="margin-left:10%;">| 
-                        <a href="admin_index.php">Go back</a>
+                    <input class="btn btn-success" type="submit"  name="submit" value="Create" style="margin-left:15px">| 
+                        <a href="../admin_index.php">Go back</a>
                     </p>
                   
               
@@ -264,12 +266,22 @@ include ('layout/header.php');
 
              
 <!-- Hero Section End -->
+<section>
+<!-- Footer -->
+<?php include('layout/footer.php'); ?>
+                </section>
 
+
+<!----JS------->
 <script type="text/javascript">
     $(".remove").click(function(){
         var id = $(this).parents("tr").attr("id");
   
         {
+
+            if (confirm ('Are you sure you want to delete this user?'));
+            else 
+             return false;
             $.ajax({
                url: 'delete_user.php',
                type: 'GET',
@@ -291,7 +303,7 @@ include ('layout/header.php');
         var id = $(this).parents("tr").attr("id");{
 
 
-        if(confirm('Are you sure to update this user ?'));
+        if(confirm('Are you sure you want to update this user ?'));
         else
          return false;
         {
@@ -306,12 +318,12 @@ include ('layout/header.php');
                
             });
         }
-    };
-
-
+    }});
 </script>
 
-
+</div>
+</div>
+</div>
 </body>
 
 </html>

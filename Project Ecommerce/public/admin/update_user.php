@@ -4,6 +4,7 @@ include ('layout/header.php');
 ?>
 
 <!-- HERO SECTION BEGINS -->
+<div class="main">
 <section class="hero">
     <div class="container">
         <div class="row">
@@ -55,7 +56,8 @@ if (isset($_GET['id'])) {
 <div class="content">
 
 <?=$msg?> 
-	<legend><h2>Update User #<?=$user['id']?></h2></legend>
+     <h2 style ="color:green;">Update User #<?=$user['id']?></h2>
+     <hr>
     <form action="update_user.php?id=<?=$user['id']?>" method="post">
    
     <form>
@@ -113,14 +115,16 @@ if (isset($_GET['id'])) {
         <label for="country">Country:</label><br>
         <input type="text" name="country" placeholder="" value="<?=$user['country']?>" id="country">
     </div>
-    </div>
-    <p>
-    <input class="btn btn-success" type="submit"  name="submit" value="Update">|
-    <a href ="create_user.php">Go Back </a> 
-    </p>
     
+    <div class="form-group col-md-2" style="margin-top:85px; margin-left:20px; ">
+    <input class="btn btn-success" type="submit"  name="submit" value="Update" >|
+    <a href ="create_user.php">Go Back </a> 
+    </div>
+    </div>
     </form>
     <hr>
    
+</div>
+</div>
 </div>
 <!--UPDATE FORM ENDS-->
