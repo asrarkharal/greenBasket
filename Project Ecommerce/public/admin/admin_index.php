@@ -1,13 +1,13 @@
 <?php
-require('../../src/config.php');
-//     require(SRC_PATH . 'dbconnect.php');
-include('layout/header.php');
+	require('../../src/config.php');
+	
+  
+ include('layout/header.php');
 ?>
-
-<!----DASHBOARD--->
-<div class="main">
-              <!---MAIN CONTENT---->
-               <!-- <div class="main-content"> -->
+<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<!-- <div class="main-content"> -->
 				<div class="container-fluid">
 					<!-- OVERVIEW -->
 					<div class="panel panel-headline">
@@ -219,4 +219,5 @@ include('layout/header.php');
 		<!-- END MAIN -->
 		<div class="clearfix"></div>
 
-		<script src ="js/admin.js"></script>
+ <!-- Footer -->
+ <?php include('layout/footer.php');?>

@@ -34,8 +34,12 @@ if (isset($_GET['id'])) {
 <section class="hero">
     <div class="container">
         <div class="row">
-            
-           
+            <div class="col-lg-3">
+                
+            </div>
+            <div class="col-lg-9">
+                
+                </div>
 
 <!----DELETE SECTION BEGINS-->
 <div class="content">
@@ -43,7 +47,7 @@ if (isset($_GET['id'])) {
     <?php if ($msg): ?>
     <p><?=$msg?></p>
     <?php else: ?>
-	<p>Are you sure you want to delete user #<?=$user['id']?>?</p>
+	<p>The user #<?=$user['id']?> will be deleted permanently.</p>
     <div class="yesno">
         <a href="delete_user.php?id=<?=$user['id']?>&confirm=yes"><button type="button" class="btn btn-success">Yes</button></a>
         <a href="create_user.php?id=<?=$user['id']?>&confirm=no"><button type="button" class="btn btn-danger">No</button></a>
@@ -57,6 +61,8 @@ if (isset($_GET['id'])) {
 
 <!----HERO SECTION ENDS--->
 
+<!-- Footer -->
 
+<?php include('layout/footer.php'); ?>
 
 

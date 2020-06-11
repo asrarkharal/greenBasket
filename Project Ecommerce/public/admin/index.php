@@ -1,10 +1,9 @@
 <?php include('../../src/config.php'); ?>
-<?php include('../user/layout/header.php'); ?>
+<?php include('layout/header.php'); ?>
 
 <?php
 $feedback = "";
 ?>
-
 
 <div class="container">
     <div class="contact-form spad">
@@ -104,5 +103,6 @@ $prods = $productDbHandler->getAllProducts();
 
         </div>
     </div>
+</div>
 </div>
 
