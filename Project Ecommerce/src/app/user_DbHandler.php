@@ -39,7 +39,7 @@ class userDbHandlerClass
 	    }
 	    return $user;
 	}
-
+ 
 
     public function fetchUserById($id){
         global $dbconnect;
@@ -60,6 +60,22 @@ class userDbHandlerClass
         return $user;
         }
 
+    public function fetchAllUser(){
+        global $dbconnect;
+        try {
+            $query = 
+            "SELECT * FROM users 
+            ";
+        //  $stmt = $dbconnect->query($query);
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute();
+            $user = $stmt->fetchAll();
+
+            } catch (\PDOException $e) {
+                throw new \PDOException($e->getMessage(), (int) $e->getCode());
+        }
+        return $user;
+        }
 
     public function updateUser($userData) {
             global $dbconnect;
@@ -99,8 +115,9 @@ class userDbHandlerClass
             return $result;
         }
 
-        public function addUser($userData){
+    public function addUser($userData){
             global $dbconnect;
+
           try {
             $query = "
             INSERT INTO users (first_name,last_name,street,city,postal_code,country,email,phone,password)
