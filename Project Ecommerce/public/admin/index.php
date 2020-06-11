@@ -11,7 +11,7 @@ $feedback = "";
         <div class="col-lg-9">
             <div class="contact__form__title">
                 <h2>Admin Page</h2>
-                <h4>Manage User and Products</h4>
+                <h4>Manage Products</h4>
 
             </div>
         </div>
@@ -106,6 +106,3 @@ $prods = $productDbHandler->getAllProducts();
     </div>
 </div>
 
-<?php
-include('layout/footer.php')
-?>

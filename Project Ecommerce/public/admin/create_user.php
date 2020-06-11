@@ -134,9 +134,9 @@ include ('layout/header.php');
 <!--  FORM USER INSERT---->
 <section>
 <form method="POST" action="#">
-<?=$msg?>          
-                    <h3 style="color:green;">Create new User</h3>
-                    
+<?=$msg?>           <hr>
+                    <h3 style="color:green; text-align:center;">Create new User</h3>
+                    <hr>
                     <form >
                     <div class="form-row" style="margin-top:20px; margin-left:50px;">
                     <div class="form-group col-md-6">
@@ -184,7 +184,7 @@ include ('layout/header.php');
                     </div>
                     <p>
                     <input class="btn btn-success" type="submit"  name="submit" value="Create" style="margin-left:10%;">| 
-                        <a href="../admin_index.php">Go back</a>
+                        <a href="admin_index.php">Go back</a>
                     </p>
                   
               
@@ -264,10 +264,7 @@ include ('layout/header.php');
 
              
 <!-- Hero Section End -->
-<section>
-<!-- Footer -->
-<?php include('layout/footer.php'); ?>
-                </section>
+
 <script type="text/javascript">
     $(".remove").click(function(){
         var id = $(this).parents("tr").attr("id");
