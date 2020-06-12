@@ -87,7 +87,7 @@ include('layout/header.php');
                         <li>Total Excl.Mom <span>kr <?= $cartTotalSumExcMom ?> </span></li>
                         <li>Total <span>kr <?= $cartTotalSum ?></span></li>
                     </ul>
-                    <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                    <a href="checkout2.php" class="primary-btn">PROCEED TO CHECKOUT</a>
                 </div>
             </div>
         </di>

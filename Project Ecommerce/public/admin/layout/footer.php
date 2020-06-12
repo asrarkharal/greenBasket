@@ -1,6 +1,6 @@
     <!-- Footer Section Begin -->
     <footer class="footer-spad">
-        <div class="container fixed-bottom">
+        <div class="container fixed-bottom" id="myTestFooter">
             <p style="text-align:center;" class="copyright">&copy; 2020 <a href="#"
                     target="_blank">Green-basket.online</a>. All Rights Reserved.</p>
         </div>
