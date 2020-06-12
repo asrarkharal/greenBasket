@@ -1,7 +1,9 @@
 <?php
 // session_start();
 // include("dbconnect.php");
-include('../../src/config.php');
+//include('../../src/config.php');
+require('../src/config.php');
+
 
 // echo "<pre>";
 // print_r($_POST);

@@ -1,5 +1,6 @@
 <?php
-include('../../src/config.php');
+//include('../../src/config.php');
+require('../src/config.php');
 
 // session_start();
 // echo "<pre>";
