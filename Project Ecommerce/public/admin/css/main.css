@@ -17,7 +17,14 @@
   width: 50%;
 }
 
-#product-form-inputs input[type="submit"] {
+#edit-form-inputs input {
+
+  color: grey;
+  width: 50%;
+}
+
+#product-form-inputs input[type="submit"],
+#edit-form-inputs input[type="submit"] {
   color: white !important;
 
 }
