@@ -70,16 +70,22 @@ $(document).ready(function () {
                 '<td>' + a["title"] + '</td>' +
                 '<td>' + a["description"] + '</td>' +
                 '<td>' + a["price"] + '</td>' +
-                '<td>' + a["img_url"] + '</td><td>' +
-                '<form method="POST" action="#" class="float-left mr-3">' +
+                '<td>' +
+                '<div clas= "row" id = "form-div-btn">' +
+                '<div>' +
+                '<form method="POST" action="#" mr-3">' +
                 '<input type="hidden" name="productHiddenID" value="' + a["id"] + '">' +
-                '<input type="submit" class="delProduct" name="deleteProductBtn" value="Delete">' +
+                '<input type="submit"' +
+                'class="delProduct btn btn-danger delete" name="deleteProductBtn" value="Delete">' +
                 '</form>' +
-
-                '<form action="edit_product_page.php" method="POST" class="float-left">' +
+                '</div>' +
+                '<div>' +
+                '<form action="edit_product_page.php" method="POST">' +
                 '<input type="hidden" name="editProductHiddenID" value="' + a["id"] + '">' +
-                '<input type="submit" name="editProductBtn" value="Edit">' +
+                '<input type="submit" name="editProductBtn" value="Edit" class="btn btn-info update">' +
                 '</form>' +
+                '</div>' +
+                '</div>' +
                 '</td>' +
                 '</tr>';
         }

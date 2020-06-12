@@ -89,10 +89,12 @@
                                             <td><?= $val['title'] ?></td>
                                             <td><?= $val['description'] ?></td>
                                             <td><?= $val['price'] ?></td>
-                                            <td class="">
+                                            <td>
 
                                                 <div class="row" id="form-div-btn">
                                                     <div class="">
+
+
                                                         <form method="POST" action="#" class="mr-3">
                                                             <input type="hidden" name="productHiddenID"
                                                                 value="<?= $val['id'] ?>">
@@ -102,8 +104,8 @@
 
                                                         </form>
                                                     </div>
-                                                    <div class="">
-                                                        <form action="edit_product_page.php" method="POST" class="">
+                                                    <div>
+                                                        <form action="edit_product_page.php" method="POST">
                                                             <input type="hidden" name="editProductHiddenID"
                                                                 value="<?= $val['id'] ?>">
                                                             <input type="submit" name="editProductBtn" value="Edit"
@@ -117,9 +119,6 @@
                                             </td>
                                         </tr>
                                         <?php } ?>
-
-
-
 
                                         <script src="js/productAjaxFunction.js"></script>
                                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
