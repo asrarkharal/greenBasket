@@ -58,7 +58,7 @@
                 </div>
                 <div class="modal-footer">
 
-                    <form action="../public/admin/checkout.php" method="POST" class="mt-2">
+                    <form action="../public/checkout.php" method="POST" class="mt-2">
                         <Button type="submit" name="checkOutBtn" value="Checkout"
                             class="btn btn-primary">Checkout</Button>
                     </form>

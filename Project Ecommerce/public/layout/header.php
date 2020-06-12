@@ -19,6 +19,7 @@ $cartTotalSum = 0;
 foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
     $cartTotalSum += $cartItem['price'] * $cartItem['quantity'];
 }
+$cartTotalSumExcMom = $cartTotalSum - ($cartTotalSum * 25) / 100;
 
 
 // Asrar Debugging cart Items above this
