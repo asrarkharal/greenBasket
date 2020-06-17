@@ -135,6 +135,7 @@
                         <li><a href="#" class=""><i class="lnr lnr-dice"></i> <span>Customer service</span></a></li>
                         <li><a href="#" class=""><i class="lnr lnr-cog"></i> <span>Setting</span></a></li>
                         <li><a href="#" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
+                        <li><a href="../../public/index.php"><i class="lnr lnr-home"></i> <span>Back to Main Page</span></a></li>
                     </ul>
                 </nav>
             </div>
