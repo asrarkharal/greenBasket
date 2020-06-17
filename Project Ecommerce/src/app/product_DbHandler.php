@@ -36,6 +36,28 @@ class productDbHandlerClass
         return $onepost;
     }
 
+    // GET One Product
+    public function getOneProduct2($id)
+    {
+        global $dbconnect;
+        try {
+            $query = "
+    SELECT * FROM products
+    WHERE id = :id;
+    
+";
+            $onepost = $dbconnect->prepare($query);
+            $onepost->bindValue(':id', $id);
+            $onepost->execute();
+            $oneProduct = $onepost->fetch();
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int) $e->getCode());
+        }
+        return $oneProduct;
+    }
+
+
+
 
     //
     public function deleteOneProduct($id)
