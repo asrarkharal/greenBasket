@@ -1,8 +1,107 @@
 <?php
 // session_start();
-//include('../../src/config.php');
 require('../src/config.php');
+include('place_order.php');
 
+
+?>
+
+<?php
+$zipCode = "";
+$city = "";
+$country = "";
+$street = "";
+$phone = "";
+$email = "";
+$fname = "";
+$lname = "";
+
+$msg = "";
+$userId = "";
+$user = "";
+$checkItems = "";
+$error = "";
+$errorUL = "";
+
+if (isset($_POST['placeOrderBtn'])) {
+
+    $zipCode = $_POST["postal_code"];
+    $city = $_POST["city"];
+    $country = $_POST["country"];
+    $street = $_POST["street"];
+    $phone = $_POST["phone"];
+    $email = $_POST["email"];
+    $fname = $_POST["first_name"];
+    $lname = $_POST["last_name"];
+
+    if (empty($fname)) {
+        $error .= "<li class = 'text-danger'>Please Enter First Name </li>";
+    }
+    if (empty($lname)) {
+        $error .= "<li class = 'text-danger'>Please Enter Last name </li>";
+    }
+    if (empty($email)) {
+        $error .= "<li class = 'text-danger'>Please Enter Email </li>";
+    }
+    if (empty($zipCode)) {
+        $error .= "<li class = 'text-danger'>Please Enter Postal Code </li>";
+    }
+    if (empty($city)) {
+        $error .= "<li class = 'text-danger'>Please Enter City </li>";
+    }
+    if (empty($country)) {
+        $error .= "<li class = 'text-danger'>Please Enter Country </li>";
+    }
+    if (empty($street)) {
+        $error .= "<li class = 'text-danger'>Please Enter Street </li>";
+    }
+    if (empty($phone)) {
+        $error .= "<li class = 'text-danger'>Please Enter Phone Number </li>";
+    }
+
+
+
+    if (!empty($error)) {
+        $errorUL = "<ul class = 'jumbotron'> {$error} </ul>";
+    }
+
+    if (empty($errorUL)) {
+        //check again if product exist in database during placing order
+        foreach ($_SESSION['cartItems'] as $items) {
+            $checkItems = $productDbHandler->getOneProduct2($items['id']);
+            if (empty($checkItems['title'])) {
+                unset($_SESSION['cartItems']);
+                header("location: product_out_of_stock.php");
+                exit;
+            }
+        }
+
+        //check if use (email exist)
+        $user = $userDbHandler->fetchUserByEmail($_POST['email']);
+
+        if ($user) {
+            $userId = $user['id'];
+        } else {
+            // if use is new then add user in the DB and fetch the last enterd user id
+            $result = $userDbHandler->addUser2($_POST);
+            if ($result['result']) {
+                $user = $userDbHandler->fetchUserById($result['userId']);
+            }
+        }
+
+        if ($user) {
+            placeOrderDataBase($user, $_POST['cartTotalSum']);
+        } else {
+            $msg = "Sorry Can not place Order, Something get wrong with User Information...";
+        }
+    } else {
+
+        $msg = $errorUL;
+    }
+}
+
+?>
+<?php
 include('layout/header.php');
 ?>
 
@@ -14,64 +113,74 @@ include('layout/header.php');
                 </h6>
             </div>
         </div>
+        <div class="row">
+            <div class="col-9">
+                <h5 id="checkoutMessage "><?= $msg ?></h5>
+            </div>
+        </div>
         <div class="checkout__form">
             <h4>Billing Details</h4>
-            <form action="#">
+            <form action="#" method="POST">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Fist Name<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="first_name" placeholder="Mr Bott." value="<?= $fname ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Last Name<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="last_name" value="<?= $lname ?>">
                                 </div>
                             </div>
-                        </div>
-                        <div class="checkout__input">
-                            <p>Country<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Address<span>*</span></p>
-                            <input type="text" placeholder="Street Address" class="checkout__input__add">
-                            <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Town/City<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Country/State<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Postcode / ZIP<span>*</span></p>
-                            <input type="text">
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Phone<span>*</span></p>
-                                    <input type="text">
+                                    <p>Email<span>*</span></p>
+                                    <input type="text" name="email" placeholder="email" value="<?= $email ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Email<span>*</span></p>
-                                    <input type="text">
+                                    <p>PassWord<span>*</span></p>
+                                    <input type="password" name="password" placeholder="****">
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Phone<span>*</span></p>
+                                    <input type="text" name="phone" placeholder="070-xxxxx" value="<?= $phone ?>">
+                                </div>
+                            </div>
+
                         </div>
+
+                        <div class="checkout__input">
+                            <p>Address<span>*</span></p>
+                            <input type="text" name="street" placeholder="Street Address" class="checkout__input__add"
+                                value="<?= $street ?>">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Town/City<span>*</span></p>
+                            <input type="text" name="city" placeholder="City" value="<?= $city ?>">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Country/State<span>*</span></p>
+                            <input type="text" name="country" placeholder="Country" value="<?= $country ?>">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Postcode / ZIP<span>*</span></p>
+                            <input type="text" name="postal_code" placeholder="171 xx" value="<?= $zipCode ?>">
+                        </div>
+
                         <div class="checkout__input__checkbox">
                             <label for="acc">
                                 Create an account?
-                                <input type="checkbox" id="acc">
+                                <input type="checkbox" name="crAccCheckBox" id="acc">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -93,17 +202,23 @@ include('layout/header.php');
                             <input type="text" placeholder="Notes about your order, e.g. special notes for delivery.">
                         </div>
                     </div>
+                    <!-- Your Order Details -->
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h4>Your Order</h4>
                             <div class="checkout__order__products">Products <span>Total</span></div>
                             <ul>
-                                <li>Vegetable’s Package <span>$75.99</span></li>
-                                <li>Fresh Vegetable <span>$151.99</span></li>
-                                <li>Organic Bananas <span>$53.99</span></li>
+
+                                <?php foreach ($_SESSION['cartItems'] as $items) {
+                                    $littleTotal = $items['price'] * $items['quantity'];
+                                ?>
+                                <li><?= $items['quantity'] ?> X <?= $items['title'] ?> <span>kr <?= $littleTotal ?>
+                                    </span></li>
+                                <?php } ?>
+
                             </ul>
-                            <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
-                            <div class="checkout__order__total">Total <span>$750.99</span></div>
+
+                            <div class="checkout__order__total">Total <span>kr <?= $cartTotalSum ?></span></div>
                             <div class="checkout__input__checkbox">
                                 <label for="acc-or">
                                     Create an account?
@@ -127,7 +242,8 @@ include('layout/header.php');
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <button type="submit" class="site-btn">PLACE ORDER</button>
+                            <input type="hidden" name="cartTotalSum" value="<?= $cartTotalSum ?>">
+                            <button type="submit" name="placeOrderBtn" class="site-btn">PLACE ORDER</button>
                         </div>
                     </div>
                 </div>

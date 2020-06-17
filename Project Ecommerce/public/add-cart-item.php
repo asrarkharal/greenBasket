@@ -48,7 +48,5 @@ if (!empty($_POST['quantity'])) {
     }
 }
 
-
-
 header('location: ' . $_SERVER['HTTP_REFERER']);
 exit;

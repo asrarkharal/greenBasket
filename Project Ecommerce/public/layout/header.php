@@ -1,17 +1,38 @@
 <?php
 //session_start();
 //unset($_SESSION['cartItems']);
+
+// checkout time out start here
+
+
+
+
+
 if (!isset($_SESSION['cartItems'])) {
     $_SESSION['cartItems'] = [];
 }
 
+// //set timeout for cartItmes
+// $time = $_SERVER['REQUEST_TIME'];
+// // cart Reset in 20 min
+// $timeout_duration = 1200;
+// $timeout_duration = 20;
+
+// if (
+//     isset($_SESSION['cartItems']) &&
+//     ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration
+// ) {
+//     $_SESSION['cartItems'] = [];
+// }
+// $_SESSION['LAST_ACTIVITY'] = $time;
+
+//set timeout for cartItmes ends here..
+
+
+
 if (isset($_POST['emptyCartBtn'])) {
     $_SESSION['cartItems'] = [];
 }
-
-// echo "<pre>";
-// print_r($_SESSION['cartItems']);
-// echo "</pre>";
 
 $cartItemCount = count($_SESSION['cartItems']);
 $cartTotalSum = 0;
