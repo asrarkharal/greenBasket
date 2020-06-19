@@ -1,3 +1,10 @@
+<?php
+
+
+?>
+
+
+
 <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
     <div class="header__cart">
         <ul>
@@ -7,9 +14,8 @@
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
                     <a href="#"><i class="fa fa-shopping-bag"></i>
-                        <span><?= $cartItemCount ?></span></a>
+                        <span><?= $cartItemCount ?> </span></a>
                 </button>
-
             </li>
         </ul>
     </div>
@@ -58,7 +64,7 @@
                 </div>
                 <div class="modal-footer">
 
-                    <form action="../public/admin/checkout.php" method="POST" class="mt-2">
+                    <form action="../public/checkout.php" method="POST" class="mt-2">
                         <Button type="submit" name="checkOutBtn" value="Checkout"
                             class="btn btn-primary">Checkout</Button>
                     </form>

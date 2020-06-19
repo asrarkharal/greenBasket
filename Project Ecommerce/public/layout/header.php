@@ -1,17 +1,38 @@
 <?php
 //session_start();
 //unset($_SESSION['cartItems']);
+
+// checkout time out start here
+
+
+
+
+
 if (!isset($_SESSION['cartItems'])) {
     $_SESSION['cartItems'] = [];
 }
 
+// //set timeout for cartItmes
+// $time = $_SERVER['REQUEST_TIME'];
+// // cart Reset in 20 min
+// $timeout_duration = 1200;
+// $timeout_duration = 20;
+
+// if (
+//     isset($_SESSION['cartItems']) &&
+//     ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration
+// ) {
+//     $_SESSION['cartItems'] = [];
+// }
+// $_SESSION['LAST_ACTIVITY'] = $time;
+
+//set timeout for cartItmes ends here..
+
+
+
 if (isset($_POST['emptyCartBtn'])) {
     $_SESSION['cartItems'] = [];
 }
-
-// echo "<pre>";
-// print_r($_SESSION['cartItems']);
-// echo "</pre>";
 
 $cartItemCount = count($_SESSION['cartItems']);
 $cartTotalSum = 0;
@@ -19,6 +40,7 @@ $cartTotalSum = 0;
 foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
     $cartTotalSum += $cartItem['price'] * $cartItem['quantity'];
 }
+$cartTotalSumExcMom = $cartTotalSum - ($cartTotalSum * 25) / 100;
 
 
 // Asrar Debugging cart Items above this
@@ -123,7 +145,7 @@ if (isset($_SESSION['first_name'])) {
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.php">Home</a></li>
-                <li><a href="promotion.php">Promotion</a></li>
+                <li><a href="about.php">About us</a></li>
                 <li><a href="../public/product_list_page.php">Products</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="ProudctAll.php">All products</a></li>
@@ -188,8 +210,8 @@ if (isset($_SESSION['first_name'])) {
                                 <a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name     
                              ";
                                 } else {
-                                    $aboveNav = "<ul><li> <a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a></li>
-                                </ul>";
+                                    $aboveNav = "<a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a>
+                               ";
                                 }
                                 echo $aboveNav;
                                 ?>
@@ -215,7 +237,7 @@ if (isset($_SESSION['first_name'])) {
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="promotion.php">Promotion</a></li>
+                            <li><a href="about.php">About us</a></li>
                             <li><a href="../public/product_list_page.php">Products</a>
 
                                 <ul class="header__menu__dropdown">

@@ -1,6 +1,7 @@
 <?php
 // session_start();
-include('../src/config.php');
+//include('../../src/config.php');
+require('../src/config.php');
 
 include('layout/header.php');
 ?>
@@ -65,7 +66,7 @@ include('layout/header.php');
         <di v class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="../index.php" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                    <a href="index.php" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -83,10 +84,10 @@ include('layout/header.php');
                 <div class="shoping__checkout">
                     <h5>Cart Total</h5>
                     <ul>
-                        <li>Excl. Mom <span> <?= $cartTotalSumExcMom ?> </span></li>
+                        <li>Total Excl.Mom <span>kr <?= $cartTotalSumExcMom ?> </span></li>
                         <li>Total <span>kr <?= $cartTotalSum ?></span></li>
                     </ul>
-                    <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                    <a href="checkout2.php" class="primary-btn">PROCEED TO CHECKOUT</a>
                 </div>
             </div>
         </di>

@@ -4,20 +4,52 @@
   background-color: rgba(41, 40, 40, 0.4);
   width: 100vw;
 }
+
 .contact-form form input {
   width: 23%;
   color: #fff;
   padding: 0px;
 }
+
+#product-form-inputs input {
+
+  color: grey;
+  width: 50%;
+}
+
+#edit-form-inputs input {
+
+  color: grey;
+  width: 50%;
+}
+
+#product-form-inputs input[type="submit"],
+#edit-form-inputs input[type="submit"] {
+  color: white !important;
+
+}
+
+#form-div-btn input[type="submit"] {
+  margin-left: 10px;
+}
+
+#form-div-btn {
+  display: flex;
+}
+
+
+
 .fixed-top {
   position: fixed !important;
 }
+
 .newUserProfile {
   border-radius: 5% rgb(113, 160, 111);
   background-color: rgb(250, 234, 221);
   padding: 10px;
   display: none;
 }
+
 .newUserProfile li {
   border-bottom: peachpuff 1 px;
 }

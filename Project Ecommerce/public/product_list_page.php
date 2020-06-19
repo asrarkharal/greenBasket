@@ -28,9 +28,9 @@ $prods = $productDbHandler->getAllProducts();
                     </form>
 
 
-                    <form action="admin/add-cart-item.php" method="post">
+                    <form action="add-cart-item.php" method="post">
                         <input type="hidden" name="productId" value="<?= $val['id'] ?>">
-                        Qty: <input type="number" name="quantity" value="" min=0 max=5>
+                        Qty: <input type="number" name="quantity" value="1" min=0 style="width: 60px;">
                         <input type="submit" name="addToCart" value="Add to Cart" class="btn btn-primary">
                     </form>
 

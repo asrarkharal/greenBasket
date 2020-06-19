@@ -64,7 +64,7 @@ if (isset($_GET['productDetailBtn'])) {
                     <p><?= $description ?></p>
 
 
-                    <form action="admin/add-cart-item.php" method="POST" id="product_page_form">
+                    <form action="add-cart-item.php" method="POST" id="product_page_form">
                         <label for="qt">Quantity</label>
                         <input type="hidden" name="productId" value="<?= $productId ?>">
                         <input type="number" name="quantity" value="1" min=0>

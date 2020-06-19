@@ -1,5 +1,6 @@
 <?php
-include('../../src/config.php');
+//include('../../src/config.php');
+require('../src/config.php');
 
 // session_start();
 // echo "<pre>";
@@ -17,7 +18,7 @@ if ($_POST['quantity'] == 0) {
 
 
 if (empty($_SESSION['cartItems'])) {
-    header('location: ../index.php');
+    header('location: index.php');
     exit;
 } else {
 

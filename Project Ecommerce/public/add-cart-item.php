@@ -1,7 +1,9 @@
 <?php
 // session_start();
 // include("dbconnect.php");
-include('../../src/config.php');
+//include('../../src/config.php');
+require('../src/config.php');
+
 
 // echo "<pre>";
 // print_r($_POST);
@@ -45,8 +47,6 @@ if (!empty($_POST['quantity'])) {
         }
     }
 }
-
-
 
 header('location: ' . $_SERVER['HTTP_REFERER']);
 exit;
