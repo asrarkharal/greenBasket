@@ -81,6 +81,7 @@ if (isset($_SESSION['first_name'])) {
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/product_Page_Style.css" type="text/css">
+    <link rel="stylesheet" href="../user/css/main.css" type="text/css">
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -152,7 +153,7 @@ if (isset($_SESSION['first_name'])) {
                         <li><a href="checkout.php">Check Out</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.php">Blog</a></li>
+                <li><a href="<?=ROOT_PATH?>/blog.php">Blog</a></li>
                 <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>

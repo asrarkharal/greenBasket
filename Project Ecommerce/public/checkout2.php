@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 require('../src/config.php');
 include('place_order.php');
 
@@ -10,11 +10,11 @@ include('place_order.php');
 $zipCode = "";
 $city = "";
 $country = "";
-$street = "";
 $phone = "";
 $email = "";
 $fname = "";
 $lname = "";
+$street ="";
 
 $msg = "";
 $userId = "";
@@ -23,7 +23,27 @@ $checkItems = "";
 $error = "";
 $errorUL = "";
 
-if (isset($_POST['placeOrderBtn'])) {
+
+ // Fetch user by ID
+ if (isset($_SESSION['id'])) { 
+    $userId= $_SESSION['id'];
+    $user= $userDbHandler->fetchUserById($userId);
+ 
+//debug($user['postal_code']);
+    $zipCode = $user['postal_code'];
+    $city = $user['city'];
+    $country = $user['country'];
+    $street = $user['street'];
+    $phone = $user['phone'];
+    $email = $user['email'];
+    $fname = $user['first_name'];
+    $lname = $user['last_name'];
+   
+ }
+
+
+
+if (!isset($_SESSION['id']) && isset($_POST['placeOrderBtn'])) {
 
     $zipCode = $_POST["postal_code"];
     $city = $_POST["city"];
@@ -127,13 +147,13 @@ include('layout/header.php');
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Fist Name<span>*</span></p>
-                                    <input type="text" name="first_name" placeholder="Mr Bott." value="<?= $fname ?>">
+                                    <input type="text" name="first_name" placeholder="Your name" value=" <?=htmlentities($fname)?> ">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Last Name<span>*</span></p>
-                                    <input type="text" name="last_name" value="<?= $lname ?>">
+                                    <input type="text" name="last_name" value="<?=htmlentities($lname)?>">
                                 </div>
                             </div>
                         </div>
@@ -141,55 +161,62 @@ include('layout/header.php');
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                    <input type="text" name="email" placeholder="email" value="<?= $email ?>">
+                                    <input type="text" name="email" placeholder="email" value="<?=htmlentities($email)?>">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>PassWord<span>*</span></p>
-                                    <input type="password" name="password" placeholder="****">
-                                </div>
-                            </div>
+
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Phone<span>*</span></p>
-                                    <input type="text" name="phone" placeholder="070-xxxxx" value="<?= $phone ?>">
+                                    <input type="text" name="phone" placeholder="telephone" value="<?=htmlentities($phone)?>">
                                 </div>
                             </div>
 
                         </div>
-
-                        <div class="checkout__input">
+                        <div class="row">
+                        <div class="checkout__input col-lg-6">
                             <p>Address<span>*</span></p>
                             <input type="text" name="street" placeholder="Street Address" class="checkout__input__add"
-                                value="<?= $street ?>">
+                                value="<?=htmlentities($street)?>">
                         </div>
-                        <div class="checkout__input">
+                        <div class="checkout__input col-lg-6">
                             <p>Town/City<span>*</span></p>
-                            <input type="text" name="city" placeholder="City" value="<?= $city ?>">
+                            <input type="text" name="city" placeholder="City" value="<?=htmlentities($city)?>">
                         </div>
-                        <div class="checkout__input">
+                        </div>
+                        <div class="row">
+                        <div class="checkout__input col-lg-6">
                             <p>Country/State<span>*</span></p>
-                            <input type="text" name="country" placeholder="Country" value="<?= $country ?>">
+                            <input type="text" name="country" placeholder="Country" value="<?=htmlentities($country)?>">
                         </div>
-                        <div class="checkout__input">
+                        <div class="checkout__input col-lg-6">
                             <p>Postcode / ZIP<span>*</span></p>
-                            <input type="text" name="postal_code" placeholder="171 xx" value="<?= $zipCode ?>">
+                            <input type="text" name="postal_code" placeholder="171 xx" value="<?=htmlentities($zipCode)?> ">
+                        </div>
                         </div>
 
-                        <div class="checkout__input__checkbox">
-                            <label for="acc">
-                                Create an account?
-                                <input type="checkbox" name="crAccCheckBox" id="acc">
-                                <span class="checkmark"></span>
-                            </label>
+                        <div class="checkout__input__checkbox" id='ifCreateNewUser' style="display:<?php echo empty($_SESSION['id']) ? 'block' : 'none'; ?>">
+                                    <label for="acc">
+                                        Create an account?
+                                        <input type="checkbox" name="crAccCheckBox" id="acc">
+                                        <span class="checkmark"></span>
+                                    </label>
+                            
+                                <p>Create an account by entering the information below. If you are a returning customer
+                                    please login at the top of the page</p>
+                                <div class="checkout__input col-lg-6">
+                                    <p>Account Password<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                                <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <p>Confirm PassWord<span>*</span></p>
+                                            <input type="password" name="password" placeholder="****">
+                                        </div>
+                                </div>                        
                         </div>
-                        <p>Create an account by entering the information below. If you are a returning customer
-                            please login at the top of the page</p>
-                        <div class="checkout__input">
-                            <p>Account Password<span>*</span></p>
-                            <input type="text">
-                        </div>
+
+
                         <div class="checkout__input__checkbox">
                             <label for="diff-acc">
                                 Ship to a different address?
@@ -219,15 +246,15 @@ include('layout/header.php');
                             </ul>
 
                             <div class="checkout__order__total">Total <span>kr <?= $cartTotalSum ?></span></div>
-                            <div class="checkout__input__checkbox">
+                            <!-- <div class="checkout__input__checkbox">
                                 <label for="acc-or">
                                     Create an account?
                                     <input type="checkbox" id="acc-or">
                                     <span class="checkmark"></span>
                                 </label>
-                            </div>
+                            
                             <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
+                                ut labore et dolore magna aliqua.</p></div> -->
                             <div class="checkout__input__checkbox">
                                 <label for="payment">
                                     Check Payment
@@ -252,5 +279,5 @@ include('layout/header.php');
     </div>
 </section>
 <!-- Checkout Section End -->
-
+ 
 <?php include('layout/footer.php') ?>

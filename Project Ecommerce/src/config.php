@@ -17,6 +17,9 @@ require_once(SRC_PATH . 'app/common_functions.php');
 require_once(SRC_PATH . 'app/user_DbHandler.php');
 $userDbHandler = new userDbHandlerClass();
 
+require_once(SRC_PATH . 'app/product2DbHandler.php');
+$product2DbHandler = new product2DbHandlerClass();
+
 require('app/product_DbHandler.php');
 $productDbHandler = new productDbHandlerClass();
 
