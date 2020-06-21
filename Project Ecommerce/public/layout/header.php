@@ -146,14 +146,14 @@ if (isset($_SESSION['first_name'])) {
             <ul>
                 <li class="active"><a href="./index.php">Home</a></li>
                 <li><a href="about.php">About us</a></li>
-                <li><a href="../public/product_list_page.php">Products</a>
+                <li><a href="../public/ProudctAll.php">Products</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="ProudctAll.php">All products</a></li>
                         <li><a href="shoping-cart.php">Shoping Cart</a></li>
                         <li><a href="checkout.php">Check Out</a></li>
                     </ul>
                 </li>
-                <li><a href="<?=ROOT_PATH?>/blog.php">Blog</a></li>
+                <li><a href="<?= ROOT_PATH ?>/blog.php">Blog</a></li>
                 <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
@@ -238,7 +238,7 @@ if (isset($_SESSION['first_name'])) {
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
                             <li><a href="about.php">About us</a></li>
-                            <li><a href="../public/product_list_page.php">Products</a>
+                            <li><a href="../public/ProudctAll.php">Products</a>
 
                                 <ul class="header__menu__dropdown">
                                     <li><a href="ProudctAll.php">All products</a></li>
