@@ -37,7 +37,7 @@ if (isset($_POST['updateProductBtn'])) {
     $imgurl = $result['pImg'];
 
     if (empty($result)) {
-        $errorUl = "Product Updated !";
+        $errorUl = '<div class="p-3 mb-2 bg-success text-white"> Product Updated !</div>';
     }
 }
 ?>
@@ -53,30 +53,30 @@ if (isset($_POST['updateProductBtn'])) {
                         </div>
                     </div>
 
-
-                    <h5><?= $errorUl ?></h5>
-
                     <div class="col-sm-12 col-md-12 col-lg-9">
+                        <h5><?= $errorUl ?></h5>
                         <form method="POST" action="#" id="edit-form-inputs">
                             <fieldset>
                                 <legend>Update Product</legend>
 
                                 <p>
                                     <label for="input1">Title:</label> <br>
-                                    <input type="text" class="text" name="productTitle" value="<?= $title ?>">
+                                    <input type="text" class="text" name="productTitle"
+                                        value="<?= htmlentities($title) ?>">
                                 </p>
                                 <p>
                                     <label for="input1">Description:</label> <br>
                                     <input type="text" class="text" name="productDescription"
-                                        value="<?= $description ?>">
+                                        value="<?= htmlentities($description) ?>">
                                 </p>
                                 <p>
                                     <label for="input1">Price:</label> <br>
-                                    <input type="text" class="text" name="productPrice" value="<?= $price ?>">
+                                    <input type="text" class="text" name="productPrice"
+                                        value="<?= htmlentities($price) ?>">
                                 </p>
                                 <p>
                                     <label for="input1">Img Url:</label> <br>
-                                    <input type="text" class="text" name="imgUrl" value="<?= $imgurl ?>">
+                                    <input type="text" class="text" name="imgUrl" value="<?= htmlentities($imgurl) ?>">
                                     <input type="hidden" class="text" name="productId" value="<?= $id ?>">
                                 </p>
                                 <p>

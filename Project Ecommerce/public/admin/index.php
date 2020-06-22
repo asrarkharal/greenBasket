@@ -56,7 +56,7 @@
                 </div>
 
                 <!-- Create product ends here....-->
-                <?php $feedback ?>
+                <?php htmlentities($feedback) ?>
                 <div id="feedBackProduct"></div>
 
                 <?php
@@ -86,9 +86,9 @@
                                         <?php foreach ($prods as $val) { ?>
                                         <tr>
 
-                                            <td><?= $val['title'] ?></td>
-                                            <td><?= $val['description'] ?></td>
-                                            <td><?= $val['price'] ?></td>
+                                            <td><?= htmlentities($val['title']) ?></td>
+                                            <td><?= htmlentities($val['description']) ?></td>
+                                            <td><?= htmlentities($val['price']) ?></td>
                                             <td>
 
                                                 <div class="row" id="form-div-btn">

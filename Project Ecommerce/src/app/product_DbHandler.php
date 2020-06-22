@@ -190,7 +190,7 @@ class productDbHandlerClass
         }
 
         if (!empty($errorMessage)) {
-            $errorUl = "<ul id ='listOfErrors' >{$errorMessage}</ul>";
+            $errorUl = "<div class='p-3 mb-2 bg-warning text-white'><ul id ='listOfErrors'> {$errorMessage}</ul></div> ";
         }
 
         if (empty($errorUl)) {

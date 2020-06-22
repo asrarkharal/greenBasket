@@ -54,8 +54,7 @@ $(document).ready(function () {
             },
             dataType: "json",
             success: function (data) {
-                let msg = '<div class="p-3 mb-2 bg-warning text-dark">' +
-                    data['generalMsg'] + '</div>';
+                let msg = data['generalMsg'];
                 $('#feedBackProduct').html(msg);
                 setName(data);
             },

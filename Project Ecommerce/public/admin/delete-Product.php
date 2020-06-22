@@ -22,7 +22,7 @@ if (isset($_POST['deleteProBtn'])) {
         throw new \PDOException($e->getMessage(), (int) $e->getCode());
     }
     if ($stmt) {
-        $errorUl = "Record Deleted";
+        $errorUl = '<div class="p-3 mb-2 bg-warning text-dark"> Product Deleted !</div>';
     }
 }
 
