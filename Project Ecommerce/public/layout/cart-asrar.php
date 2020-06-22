@@ -14,7 +14,7 @@
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
                     <a href="#"><i class="fa fa-shopping-bag"></i>
-                        <span><?= $cartItemCount ?> </span></a>
+                        <span><?= htmlentities($cartItemCount) ?> </span></a>
                 </button>
             </li>
         </ul>
@@ -32,7 +32,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
                         <i class="fa fa-shopping-bag"></i>
-                        Total : <?= $cartTotalSum ?> - Kr
+                        Total : <?= htmlentities($cartTotalSum) ?> - Kr
                     </h5>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -47,12 +47,12 @@
 
                     <div class="row">
                         <div class="col-3">
-                            <img src="../public/img/cart/cart-1.jpg" alt="" style="width: 40px;"
+                            <img src="../public/img/cart/cart-1.jpg" alt="" style="width: 45px;"
                                 class="align-items-center">
                         </div>
-                        <div class="col-3"><?= $cartItem['title'] ?></div>
-                        <div class="col-3"><?= $cartItem['quantity'] ?></div>
-                        <div class="col-3"><?= $cartItem['price'] ?></div>
+                        <div class="col-3"><?= htmlentities($cartItem['title']) ?></div>
+                        <div class="col-3"><?= htmlentities($cartItem['quantity']) ?></div>
+                        <div class="col-3"><?= htmlentities($cartItem['price']) ?></div>
                     </div>
                     <hr>
 
@@ -65,8 +65,8 @@
                 <div class="modal-footer">
 
                     <form action="../public/checkout.php" method="POST" class="mt-2">
-                        <Button type="submit" name="checkOutBtn" value="Checkout"
-                            class="btn btn-primary">Checkout</Button>
+                        <Button type="submit" name="checkOutBtn" value="Checkout" class="btn btn-primary">Manage
+                            Cart</Button>
                     </form>
                     <form action="" method="POST" class="mt-2">
                         <button type="submit" name="emptyCartBtn" value="" class="btn btn-outline-secondary"> Clear Cart

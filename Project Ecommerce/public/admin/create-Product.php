@@ -51,7 +51,8 @@ VALUES (:title, :description, :price, :imgurl);
             throw new \PDOException($e->getMessage(), (int) $e->getCode());
         }
         if ($productSuccess) {
-            $errorUl = "Product Created";
+            // $errorUl = "Product Created ";
+            $errorUl = '<div class="p-3 mb-2 bg-success text-white"> Product Created !</div>';
         }
     }
 }
