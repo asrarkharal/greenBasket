@@ -218,8 +218,7 @@ include ('layout/header.php');
 	            		<th class="th-lg">Name</th>
                         <th class="th-lg">Surname</th>
 	            		<th class="th-lg">E-mail</th>
-	            		<th class="th-lg">Password</th>
-                        <th class="th-lg">Phone</th>
+	            	    <th class="th-lg">Phone</th>
                         <th class="th-lg">Street</th>
                         <th class="th-lg">Postal code</th>
                         <th class="th-lg">City</th>
@@ -239,8 +238,7 @@ include ('layout/header.php');
                    echo'<td>' .$row['id'] .'</td>';
 	               echo'<td>' .$row['first_name'] .'</td>';
 	               echo'<td>' .$row['last_name'] . '</td>';
-	               echo'<td>' .$row['email'] .'</td>';
-                   echo'<td>' .$row['password'] .'</td>';
+	               echo'<td>' .$row['email'] .'</td>';                  
                    echo'<td>' .$row['phone'] .'</td>';
                    echo'<td>' .$row['street'] .'</td>';
                    echo'<td>' .$row['postal_code'] .'</td>';
