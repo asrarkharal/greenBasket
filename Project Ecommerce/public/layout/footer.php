@@ -22,7 +22,11 @@
                             <li><a href="#">About Our Shop</a></li>
                             <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
+<<<<<<< Updated upstream
                             <li><a href="admin/admin_index.php">Admin CMS</a></li>
+=======
+                            <li><a href="admin/admin_login.php">Privacy Policy Admin</a></li>
+>>>>>>> Stashed changes
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
                         <ul>
