@@ -25,9 +25,7 @@
 
                             <li><a href="admin/admin_login.php">Admin CMS</a></li>
 
-                            <li><a href="admin/admin_login.php">Privacy Policy Admin</a></li>
-
-                            <li><a href="admin/admin_login.php">Privacy Policy Admin</a></li>
+                           
 
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
