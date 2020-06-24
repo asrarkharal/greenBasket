@@ -42,13 +42,13 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="../img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
+        <!-- <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>$200.00</span></div>
-        </div>
+        </div> -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="../img/language.png" alt="">
@@ -67,12 +67,12 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="../index.php">Home</a></li>
-                <li><a href="../about.php">About us</a></li>
-                <li><a href="../ProudctAll.php">Products</a>
+                <li><a href="../promotion.php">Promotion</a></li>
+                <li><a href="#">Products</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="../ProudctAll.php">All products</a></li>
-                        <li><a href="../checkout.php">Shoping Cart</a></li>
-                        <li><a href="../checkout2.php">Check Out</a></li>
+                        <li><a href="../shoping-cart.php">Shoping Cart</a></li>
+                        <li><a href="../checkout.php">Check Out</a></li>
                     </ul>
                 </li>
                 <li><a href="../blog.php">Blog</a></li>
@@ -144,13 +144,13 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="../index.php">Home</a></li>
-                            <li><a href="../about.php">About us</a></li>
-                            <li><a href="../ProudctAll.php">Products</a>
+                            <li><a href="../promotion.php">Promotion</a></li>
+                            <li><a href="#">Products</a>
 
                                 <ul class="header__menu__dropdown">
                                     <li><a href="../ProudctAll.php">All products</a></li>
-                                    <li><a href="../checkout.php">Shoping Cart</a></li>
-                                    <li><a href="../checkout2.php">Check Out</a></li>
+                                    <li><a href="../shoping-cart.php">Shoping Cart</a></li>
+                                    <li><a href="../checkout.php">Check Out</a></li>
                                  </ul>
                             </li>
                             <li><a href="../blog.php">Blog</a></li>
@@ -158,11 +158,16 @@
                         </ul>
                     </nav>
                 </div>
- 
-
-
+                <!-- <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        </ul>
+                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                    </div>
+                </div> -->
             </div>
-
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
             </div>
