@@ -42,6 +42,7 @@ if (isset($_GET['id'])) {
                 </div>
 
 <!----DELETE SECTION BEGINS-->
+<div class="main">
 <div class="content">
 	<h2>Delete user #<?=$user['id']?></h2>
     <?php if ($msg): ?>
@@ -53,9 +54,11 @@ if (isset($_GET['id'])) {
         <a href="create_user.php?id=<?=$user['id']?>&confirm=no"><button type="button" class="btn btn-danger">No</button></a>
     </div>
     <?php endif; ?>
+    
+<a href ="create_user.php">Go Back</a>
+</div>
 </div>
 
-<a href ="create_user.php">Go Back</a>
 
 <!---DELETE SECTION ENDS--->
 
