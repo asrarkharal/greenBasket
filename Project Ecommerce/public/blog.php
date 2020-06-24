@@ -51,7 +51,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                            <h5>+46 11.222.3333</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                     <div class="breadcrumb__text">
                         <h2>Blog</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="./index.php">Home</a>
                             <span>Blog</span>
                         </div>
                     </div>

@@ -76,16 +76,16 @@
                 $msg = '<div class="alert alert-success">Your profile is updated.</div>';  
             }
                 $userData = [
-                    'first_name' => $first_name,
-                    'last_name' => $last_name,
-                    'street'    => $street,
-                    'postal_code'    => $postal_code,
-                    'city'    => $city,
-                    'country'    => $country,
-                    'phone'    => $phone,
-                    'email'    => $email,
-                    'password' => $password,
-                    'id'       => $userId,
+                    'first_name'    => $first_name,
+                    'last_name'     => $last_name,
+                    'street'        => $street,
+                    'postal_code'   => $postal_code,
+                    'city'          => $city,
+                    'country'       => $country,
+                    'phone'         => $phone,
+                    'email'         => $email,
+                    'password'      => $password,
+                    'id'            => $userId,
                 ];
                 //$result = updateUser($userData);
                 $result = $userDbHandler->updateUser($userData);
@@ -97,37 +97,7 @@
                 }
 
  
-                // try {
-                //   $query = "
-                //   UPDATE users SET 
-                //   first_name= :first_name, 
-                //   last_name=:last_name, 
-                //   street=:street, 
-                //   postal_code=:postal_code, 
-                //   city=:city,
-                //   country=:country,
-                //   phone=:phone,
-                //   email=:email,
-                //   password=:password 
 
-                //   WHERE id = :id;
-                // ";        
-                //     $stmt = $dbconnect->prepare($query);
-                //     $stmt->bindValue(':first_name', $first_name);
-                //     $stmt->bindValue(':last_name', $last_name);
-                //     $stmt->bindValue(':street', $street);
-                //     $stmt->bindValue(':postal_code', $postal_code);
-                //     $stmt->bindValue(':city', $city);
-                //     $stmt->bindValue(':country', $country);
-                //     $stmt->bindValue(':phone', $phone);
-                //     $stmt->bindValue(':email', $email);
-                //     $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
-                //     $stmt->bindValue(':id', $userId);
-                //     $user = $stmt->fetch();
-                //     $stmt->execute();
-                //     } catch (\PDOException $e) {
-                //         throw new \PDOException($e->getMessage(), (int) $e->getCode());
-                //     };
             }           
 };
   
@@ -144,21 +114,7 @@ if (isset($_SESSION['id'])) {
     $userId= $_SESSION['id'];
     // $user= fetchUserById($userId);
     $user= $userDbHandler->fetchUserById($userId);
-
  
-    //     try {
-    //     $query = 
-    //         "SELECT * FROM users 
-    //           WHERE id = :id;
-    //         ";
-    //     // $stmt = $dbconnect->query($query);
-    //      $stmt = $dbconnect->prepare($query);
-    //       $stmt->bindValue(':id', $userId);
-    //       $stmt->execute();
-    //      $user = $stmt->fetch();
-    //      } catch (\PDOException $e) {
-    //         throw new \PDOException($e->getMessage(), (int) $e->getCode());
-    //   }
     };
    /***this include layout/header.php have to come after CRUD***/   
 include('layout/header.php');
@@ -207,7 +163,7 @@ include('layout/header.php');
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>+46 11.222.3333</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -404,7 +360,7 @@ include('layout/header.php');
 
  
 
-    <!-- Start Modal to update the Blog -->
+    <!-- Start Modal to update the profile -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

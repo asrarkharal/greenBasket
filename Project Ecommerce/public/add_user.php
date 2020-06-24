@@ -85,13 +85,16 @@ if(isset($_POST['registerBtn'])){
             'password' => $password,
          ];
        $result  = $userDbHandler->addUser($userData);
-
+ 
  
         
         if ($result) {
             $msg = '<div class="alert alert-success">Your registration is success</div>';
+             // redirect("login_user.php");
+
         } else {
             $msg = '<div class="error_msg">Register not success. Please try again later! </div>';
+
         }
     }
 
@@ -99,9 +102,9 @@ if(isset($_POST['registerBtn'])){
 
 //output with JSON
 $data = [
-    'message'  => $msg 
- ];
+    'message'  => $msg ,
+  ];
 echo json_encode($data);
-  //debug($data);
+// debug($data);
 
 ?>

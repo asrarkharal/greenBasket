@@ -35,7 +35,15 @@ $(document).ready(function () {
       },
       dataType: 'json',
       success: function (data) {
-        $('#form-message').html(data['message']);
+        if (
+          data['message'] ==
+          '<div class="alert alert-success">Your registration is success</div>'
+        ) {
+          window.location.href = 'login_user.php';
+        } else {
+          e.preventDefault();
+          $('#form-message').html(data['message']);
+        }
       },
     });
   });
