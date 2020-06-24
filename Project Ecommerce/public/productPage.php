@@ -63,7 +63,7 @@ $product = $product2DbHandler->fetchProductById($productId);
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 reviews)</span>
                     </div>
-                    <div class="product__details__price">$<?= htmlentities($product['price']) ?></div>
+                    <div class="product__details__price">kr <?= htmlentities($product['price']) ?></div>
                     <p><?= htmlentities($product['description']) ?></p>
 
 
@@ -200,7 +200,7 @@ $product = $product2DbHandler->fetchProductById($productId);
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
+                        <h5>kr30.00</h5>
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@ $product = $product2DbHandler->fetchProductById($productId);
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
+                        <h5>kr30.00</h5>
                     </div>
                 </div>
             </div>
@@ -230,7 +230,7 @@ $product = $product2DbHandler->fetchProductById($productId);
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
+                        <h5>kr30.00</h5>
                     </div>
                 </div>
             </div>
@@ -245,7 +245,7 @@ $product = $product2DbHandler->fetchProductById($productId);
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
+                        <h5>kr30.00</h5>
                     </div>
                 </div>
             </div>
