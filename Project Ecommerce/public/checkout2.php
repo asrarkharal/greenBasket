@@ -40,7 +40,8 @@ if (isset($_SESSION['id'])) {
     $lname      = $user['last_name'];
 }
 
-if (!isset($_SESSION['id']) && isset($_POST['placeOrderBtn'])) {
+//if (!isset($_SESSION['id']) && isset($_POST['placeOrderBtn'])) {
+if (isset($_POST['placeOrderBtn'])) {
 
     $zipCode    = trim($_POST["postal_code"]);
     $city       = trim($_POST["city"]);
@@ -82,6 +83,7 @@ if (!isset($_SESSION['id']) && isset($_POST['placeOrderBtn'])) {
     }
 
     if (empty($errorUL)) {
+
         //check again if product exist in database during placing order
         foreach ($_SESSION['cartItems'] as $items) {
             $checkItems = $productDbHandler->getOneProduct2($items['id']);
@@ -98,7 +100,7 @@ if (!isset($_SESSION['id']) && isset($_POST['placeOrderBtn'])) {
         if ($user) {
             $userId = $user['id'];
         } else {
-            // if use is new then add user in the DB and fetch the last enterd user id
+            // if user is new then add user in the DB and fetch the last enterd user id
             $result = $userDbHandler->addUser2($_POST);
             if ($result['result']) {
                 $user = $userDbHandler->fetchUserById($result['userId']);
