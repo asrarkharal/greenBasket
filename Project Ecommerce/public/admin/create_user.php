@@ -99,7 +99,7 @@ include ('layout/header.php');
     $stmt->bindValue(':first_name', $first_name);
     $stmt->bindValue(':last_name', $last_name);
     $stmt->bindValue(':email', $email);
-    $stmt->bindValue(':password', $password);
+    $stmt->bindValue(':password', password_hash ( $password,PASSWORD_BCRYPT));
     $stmt->bindValue(':phone', $phone);
     $stmt->bindValue(':street', $street);
     $stmt->bindValue(':postal_code', $postal_code);

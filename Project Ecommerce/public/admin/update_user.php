@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 
 
         $stmt = $dbconnect->prepare('UPDATE users SET id = ?, first_name = ?, last_name = ?, email = ?, password = ?, phone = ?, street = ?, postal_code = ?, city = ?, country = ? WHERE id = ?');
-        $stmt->execute([$id, $first_name, $last_name, $email, $password, $phone, $street, $postal_code, $city, $country, $_GET['id']]);
+        $stmt->execute([$id, $first_name, $last_name, $email, password_hash($password,PASSWORD_BCRYPT), $phone, $street, $postal_code, $city, $country, $_GET['id']]);
         $msg = '<div class="alert alert-success">Updated Successfully!</div>';
     }
       
@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
     
     <div class="form-group col-md-4">
         <label for="password">Password:</label><br>
-        <input type="text" name="password" placeholder="" value="<?=$user['password']?>" id="password">
+        <input type="text" name="password" placeholder="" value="<?=$user['']?>" id="password">
     </div>
     </div>
     <div class="form-row">
@@ -127,4 +127,8 @@ if (isset($_GET['id'])) {
 </div>
 </div>
 </div>
+
+
 <!--UPDATE FORM ENDS-->
+
+<?php include('layout/footer.php'); ?>
