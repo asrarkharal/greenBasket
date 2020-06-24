@@ -12,7 +12,7 @@
             <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
             <li>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
                     <a href="#"><i class="fa fa-shopping-bag"></i>
                         <span><?= htmlentities($cartItemCount) ?> </span></a>
                 </button>
