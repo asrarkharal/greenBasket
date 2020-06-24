@@ -207,7 +207,7 @@ include('layout/header.php');
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>+46 11.222.3333</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
