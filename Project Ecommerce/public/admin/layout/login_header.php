@@ -41,7 +41,7 @@
             <div class="brand">
                 <a href="../index.php"><img src="../img/logo.png" width="65%" alt=""></a>
             </div>
-
+        <!---MAIN HEADER
             <div class="container-fluid">
                 <div class="navbar-btn">
                     <button type="button" class="btn-toggle-fullwidth"><i
@@ -88,8 +88,8 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/admin2.jpg"
-                                    class="img-circle" alt="Avatar"> <span>Admin</span>
-                                     <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                                    class="img-circle" alt="Avatar"> <span>Admin Oan</span> <i
+                                    class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -102,8 +102,8 @@
                 </div>
             </div>
         </nav>
-        <!-- END NAVBAR -->
-        <!-- LEFT SIDEBAR -->
+       
+       
         <div id="sidebar-nav" class="sidebar">
             <div class="sidebar-scroll">
                 <nav>
@@ -140,4 +140,4 @@
                 </nav>
             </div>
         </div>
-        <!-- END LEFT SIDEBAR -->
+      END CONTENT -->
