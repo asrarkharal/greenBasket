@@ -8,10 +8,10 @@ if (isset($_POST['crProductBtn'])) {
 
     $errorMessage = '';
 
-    $productTitle = $_POST['crProductTitle'];
-    $productDescription = $_POST['crProductDescription'];
-    $productPrice = $_POST['crProductPrice'];
-    $productImgUrl = $_POST['crProductImgUrl'];
+    $productTitle       = trim($_POST['crProductTitle']);
+    $productDescription = trim($_POST['crProductDescription']);
+    $productPrice       = trim($_POST['crProductPrice']);
+    $productImgUrl      = trim($_POST['crProductImgUrl']);
 
     if (empty($productTitle)) {
         $errorMessage .= '<li> Product Title Can not be Empty.</li>';
@@ -22,19 +22,15 @@ if (isset($_POST['crProductBtn'])) {
     if (empty($productPrice)) {
         $errorMessage .= '<li> Product Price Field Can not be Empty.</li>';
     }
-
     if (!filter_var($productPrice, FILTER_VALIDATE_INT)) {
         $errorMessage .= '<li> Enter Price in Numbers.</li>';
     }
-
     if (empty($productImgUrl)) {
         $errorMessage .= '<li> Img url Field Can not be Empty.</li>';
     }
-
     if (!empty($errorMessage)) {
         $errorUl = "<ul id='listOfErrors'>{$errorMessage}</ul>";
     }
-
     if (empty($errorUl)) {
 
         try {
@@ -51,7 +47,6 @@ VALUES (:title, :description, :price, :imgurl);
             throw new \PDOException($e->getMessage(), (int) $e->getCode());
         }
         if ($productSuccess) {
-            // $errorUl = "Product Created ";
             $errorUl = '<div class="p-3 mb-2 bg-success text-white"> Product Created !</div>';
         }
     }

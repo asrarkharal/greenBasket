@@ -2,12 +2,6 @@
 include('../../src/config.php');
 $errorUl = '';
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
-// exit;
-
-// Delete puns
 if (isset($_POST['deleteProBtn'])) {
     try {
         $query = "
@@ -26,8 +20,7 @@ if (isset($_POST['deleteProBtn'])) {
     }
 }
 
-// Fetch puns to display on page
-
+//Display products on page with Json format
 try {
     $query = "
 SELECT * FROM products;

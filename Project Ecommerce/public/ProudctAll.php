@@ -139,8 +139,8 @@ include('layout/header.php');
                                             <img src="img/latest-product/lp-1.jpg" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Crab Pool Security</h6>
-                                            <span>$30.00</span>
+                                            <h6>Fresh Veg</h6>
+                                            <span>kr30.00</span>
                                         </div>
                                     </a>
                                     <a href="#" class="latest-product__item">
@@ -148,8 +148,8 @@ include('layout/header.php');
                                             <img src="img/latest-product/lp-2.jpg" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Crab Pool Security</h6>
-                                            <span>$30.00</span>
+                                            <h6>Tasty Fruit</h6>
+                                            <span>kr30.00</span>
                                         </div>
                                     </a>
                                     <a href="#" class="latest-product__item">
@@ -157,8 +157,8 @@ include('layout/header.php');
                                             <img src="img/latest-product/lp-3.jpg" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Crab Pool Security</h6>
-                                            <span>$30.00</span>
+                                            <h6>Healthy Food</h6>
+                                            <span>kr30.00</span>
                                         </div>
                                     </a>
                                 </div>
@@ -168,8 +168,8 @@ include('layout/header.php');
                                             <img src="img/latest-product/lp-1.jpg" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Crab Pool Security</h6>
-                                            <span>$30.00</span>
+                                            <h6>Crab Tasty Meal</h6>
+                                            <span>kr30.00</span>
                                         </div>
                                     </a>
                                     <a href="#" class="latest-product__item">
@@ -177,8 +177,8 @@ include('layout/header.php');
                                             <img src="img/latest-product/lp-2.jpg" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Crab Pool Security</h6>
-                                            <span>$30.00</span>
+                                            <h6>Drinks</h6>
+                                            <span>kr30.00</span>
                                         </div>
                                     </a>
                                     <a href="#" class="latest-product__item">
@@ -186,8 +186,8 @@ include('layout/header.php');
                                             <img src="img/latest-product/lp-3.jpg" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Crab Pool Security</h6>
-                                            <span>$30.00</span>
+                                            <h6>Green Food</h6>
+                                            <span>kr30.00</span>
                                         </div>
                                     </a>
                                 </div>
@@ -217,7 +217,7 @@ include('layout/header.php');
                                     <div class="product__discount__item__text">
                                         <span>Dried Fruit</span>
                                         <h5><a href="#">Raisin’n’nuts</a></h5>
-                                        <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        <div class="product__item__price">kr30.00 <span>kr36.00</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -235,7 +235,7 @@ include('layout/header.php');
                                     <div class="product__discount__item__text">
                                         <span>Vegetables</span>
                                         <h5><a href="#">Vegetables’package</a></h5>
-                                        <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        <div class="product__item__price">kr30.00 <span>kr36.00</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@ include('layout/header.php');
                                     <div class="product__discount__item__text">
                                         <span>Dried Fruit</span>
                                         <h5><a href="#">Mixed Fruitss</a></h5>
-                                        <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        <div class="product__item__price">kr30.00 <span>kr36.00</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -272,7 +272,7 @@ include('layout/header.php');
                                     <div class="product__discount__item__text">
                                         <span>Dried Fruit</span>
                                         <h5><a href="#">Raisin’n’nuts</a></h5>
-                                        <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        <div class="product__item__price">kr30.00 <span>kr36.00</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -290,7 +290,7 @@ include('layout/header.php');
                                     <div class="product__discount__item__text">
                                         <span>Dried Fruit</span>
                                         <h5><a href="#">Raisin’n’nuts</a></h5>
-                                        <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        <div class="product__item__price">kr30.00 <span>kr36.00</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -308,7 +308,7 @@ include('layout/header.php');
                                     <div class="product__discount__item__text">
                                         <span>Dried Fruit</span>
                                         <h5><a href="#">Raisin’n’nuts</a></h5>
-                                        <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        <div class="product__item__price">kr30.00 <span>kr36.00</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@ include('layout/header.php');
                             <div class="product__item__text">
                                 <h6><a href="productPage.php?id=<?= $product['id'] ?>">
                                         <?= htmlentities($product['title']) ?></a></h6>
-                                <h5>$<?= htmlentities($product['price']) ?></h5>
+                                <h5>kr- <?= htmlentities($product['price']) ?></h5>
                                 <form action="add-cart-item.php" method="post">
                                     <input type="hidden" name="productId" value="<?= $product['id'] ?>">
                                     Qty: <input type="number" name="quantity" value="1" min=0 style="width: 60px;">

@@ -1,10 +1,10 @@
 <?php include('../../src/config.php');
 include('layout/header.php');
-$id = "";
-$title = "";
+$id         = "";
+$title      = "";
 $description = "";
-$price = "";
-$imgurl = "";
+$price      = "";
+$imgurl     = "";
 ?>
 
 <?php
@@ -12,15 +12,15 @@ $imgurl = "";
 $errorUl = "";
 $result = "";
 if (isset($_POST['editProductBtn'])) {
-    $eid = $_POST['editProductHiddenID'];
-    $prods = $productDbHandler->getOneProduct($eid);
+    $eid    = $_POST['editProductHiddenID'];
+    $prods  = $productDbHandler->getOneProduct($eid);
 
     foreach ($prods as $val) {
-        $id = $val['id'];
-        $title = $val['title'];
+        $id          = $val['id'];
+        $title       = $val['title'];
         $description = $val['description'];
-        $price = $val['price'];
-        $imgurl = $val['img_url'];
+        $price       = $val['price'];
+        $imgurl      = $val['img_url'];
     }
 }
 ?>
@@ -28,13 +28,13 @@ if (isset($_POST['editProductBtn'])) {
 <?php
 if (isset($_POST['updateProductBtn'])) {
 
-    $result = $productDbHandler->updateProduct($_POST);
-    $errorUl = $result['myul'];
-    $id = $result['pId'];
-    $title = $result['pTitle'];
-    $description = $result['pDescription'];
-    $price = $result['pPrice'];
-    $imgurl = $result['pImg'];
+    $result         = $productDbHandler->updateProduct($_POST);
+    $errorUl        = $result['myul'];
+    $id             = $result['pId'];
+    $title          = $result['pTitle'];
+    $description    = $result['pDescription'];
+    $price          = $result['pPrice'];
+    $imgurl         = $result['pImg'];
 
     if (empty($result)) {
         $errorUl = '<div class="p-3 mb-2 bg-success text-white"> Product Updated !</div>';
