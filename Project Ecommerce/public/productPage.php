@@ -19,7 +19,7 @@ $product = $product2DbHandler->fetchProductById($productId);
                 <div class="breadcrumb__text">
                     <h2>Daily’s Package</h2>
                     <div class="breadcrumb__option">
-                        <a href="inedx.php">Home</a>
+                        <a href="index.php">Home</a>
                         <a href="#">Category's name</a>
                         <span><?= htmlentities($product['title']) ?></span>
                     </div>

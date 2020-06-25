@@ -60,19 +60,19 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-            <span>Hi <?=$first_name?></span><a href="../logout.php"><span>Log out</span></a>
+            <span>Hi <?=$first_name.'  '?>   </span><a href="../logout.php"><span>  Log out</span></a>
 
              </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="../index.php">Home</a></li>
-                <li><a href="../promotion.php">Promotion</a></li>
-                <li><a href="#">Products</a>
+                <li><a href="../about.php">About us</a></li>
+                <li><a href="../ProudctAll.php">Products</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="../ProudctAll.php">All products</a></li>
-                        <li><a href="../shoping-cart.php">Shoping Cart</a></li>
-                        <li><a href="../checkout.php">Check Out</a></li>
+                        <li><a href="../checkout.php">Shoping Cart</a></li>
+                        <li><a href="../checkout2.php">Check Out</a></li>
                     </ul>
                 </li>
                 <li><a href="../blog.php">Blog</a></li>
@@ -144,13 +144,13 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="../index.php">Home</a></li>
-                            <li><a href="../promotion.php">Promotion</a></li>
-                            <li><a href="#">Products</a>
+                            <li><a href="../about.php">About us</a></li>
+                            <li><a href="../ProudctAll.php">Products</a>
 
                                 <ul class="header__menu__dropdown">
                                     <li><a href="../ProudctAll.php">All products</a></li>
-                                    <li><a href="../shoping-cart.php">Shoping Cart</a></li>
-                                    <li><a href="../checkout.php">Check Out</a></li>
+                                    <li><a href="../checkout.php">Shoping Cart</a></li>
+                                    <li><a href="../checkout2.php">Check Out</a></li>
                                  </ul>
                             </li>
                             <li><a href="../blog.php">Blog</a></li>
