@@ -126,7 +126,7 @@ if (isset($_SESSION['first_name'])) {
                     <li class="nav-item">
                         <?php
                         if (isset($first_name)) {
-                            $aboveNav = "<a class='nav-link' href='user/my_profile.php?id=$userId'>My profile</a><a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name";
+                            $aboveNav = "<a class='nav-link' href='user/my_profile.php?id=$userId'>My profile</a><a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name ::";
                         } else {
                             $aboveNav = "<a class='nav-link' href='register_user.php'>Register</a><a class='nav-link' href='login_user.php'>Log in</a>";
                         }
@@ -203,7 +203,7 @@ if (isset($_SESSION['first_name'])) {
                                 <?php
                                 if (isset($first_name)) {
                                     $aboveNav = "<a class='nav-link' href='user/my_profile.php?id=$userId'>My profile</a>
-                                <a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name     
+                                <a class='nav-link' href='logout.php'>Log out</a>:: Hi $first_name ::      
                              ";
                                 } else {
                                     $aboveNav = "<a class='nav-link' href='register_user.php'>REGISTER</a><a class='nav-link' href='login_user.php'>LOG IN</a>

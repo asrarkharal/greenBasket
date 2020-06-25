@@ -126,7 +126,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h5>SEK 30.00</h5>
                         </div>
                     </div>
                 </div>

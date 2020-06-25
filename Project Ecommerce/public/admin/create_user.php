@@ -157,7 +157,7 @@ include ('layout/header.php');
                     </div>
                     <div class="form-group col-md-6">
                         <label for="input2">Password:</label> <br>
-                        <input type="text" class="text" name="password" value ="<?=$password?>">
+                        <input type="password" class="text" name="password" value ="<?=$password?>">
                     </div>
                     </div>
                     <div class="form-row" style="margin-left:50px;">

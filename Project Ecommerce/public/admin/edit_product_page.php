@@ -1,5 +1,5 @@
 <?php include('../../src/config.php');
-include('layout/header.php');
+
 $id         = "";
 $title      = "";
 $description = "";
@@ -40,6 +40,7 @@ if (isset($_POST['updateProductBtn'])) {
         $errorUl = '<div class="p-3 mb-2 bg-success text-white"> Product Updated !</div>';
     }
 }
+include('layout/header.php');
 ?>
 
 <div class="main">

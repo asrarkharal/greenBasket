@@ -60,7 +60,7 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-            <span>Hi <?=$first_name.'  '?>   </span><a href="../logout.php"><span>  Log out</span></a>
+            <span>Hi <?=$first_name ?>::    </span><a href="../logout.php"><span>  Log out</span></a>
 
              </div>
         </div>
@@ -126,7 +126,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                            <span>Hi <?=$first_name?></span><a href="../logout.php"><span>Log out</span></a>
+                            <span>Hi <?=$first_name?>::</span><a href="../logout.php"><span>Log out</span></a>
                              </div>
                         </div>
                     </div>

@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
     
     <div class="form-group col-md-4">
         <label for="password">Password:</label><br>
-        <input type="text" name="password" placeholder="" value="<?=$user['']?>" id="password">
+        <input type="password" name="password" placeholder="" value="" id="password">
     </div>
     </div>
     <div class="form-row">
